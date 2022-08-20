@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Isometric Assets/SpriteSheet/SpriteSheet_DevDog1_Working.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=3]
+resource_name = "DevSitting"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[node name="Dev1_Static" type="StaticBody2D"]
+scale = Vector2( 0.666667, 0.666667 )
+
+[node name="Dev1_Body" type="Node2D" parent="."]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Dev1_Body"]
+
+[node name="Dev 1" type="Sprite" parent="Dev1_Body/KinematicBody2D"]
+texture = ExtResource( 1 )
+offset = Vector2( -20, -34.5 )
+hframes = 4
+vframes = 2
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Dev1_Body/KinematicBody2D/Dev 1"]
+autoplay = "DevSitting"
+anims/DevSitting = SubResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Dev1_Body/KinematicBody2D"]
+position = Vector2( -21, -34.5 )
+polygon = PoolVector2Array( -61.5, 39, -62, 51, -16, 73.5, -11, 72.5, 6, 66, 13.5, 70.5, 21.5, 77, 42, 76.5, 58.5, 72, 64.5, 64.5, 57, 54, 70.5, 48, 70.5, 33, 58.5, 30, 58.5, 21.5, 21, -1.50001 )
