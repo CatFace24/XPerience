@@ -45,7 +45,7 @@ margin_top = 522.0
 margin_right = 764.0
 margin_bottom = 546.0
 custom_fonts/font = SubResource( 1 )
-text = "Loading pixels..."
+text = "Merging to develop..."
 align = 1
 script = ExtResource( 7 )
 
