@@ -40,12 +40,14 @@ texture_over = ExtResource( 2 )
 texture_progress = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 503.0
+
+margin_left = 394.0
 margin_top = 522.0
-margin_right = 764.0
+margin_right = 853.0
 margin_bottom = 546.0
 custom_fonts/font = SubResource( 1 )
-text = "Loading pixels..."
+text = "Running away from responsibilities..."
+
 align = 1
 script = ExtResource( 7 )
 
