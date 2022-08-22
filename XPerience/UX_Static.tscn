@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Isometric Assets/SpriteSheet/SpriteSheet_UX DEsigner Working.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=5]
+resource_name = "UXSitting"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
+}
+
+[node name="UX_Static" type="StaticBody2D"]
+scale = Vector2( 0.666667, 0.666667 )
+
+[node name="UX_Body" type="Node2D" parent="."]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="UX_Body"]
+
+[node name="UX" type="Sprite" parent="UX_Body/KinematicBody2D"]
+texture = ExtResource( 1 )
+offset = Vector2( -10, -37 )
+hframes = 4
+vframes = 4
+frame = 14
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UX_Body/KinematicBody2D/UX"]
+autoplay = "UXSitting"
+anims/UXSitting = SubResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UX_Body/KinematicBody2D"]
+position = Vector2( -10.5, -37.5 )
+polygon = PoolVector2Array( -70, 48, -66, 52, -24.5, 70.5, -18, 70, 0, 61.5, 3, 66, 12, 74.5, 31.5, 74.5, 52, 68, 53.5, 62, 43, 51.5, 59, 45.5, 61.5, 17, 20, -8, -71, 35 )
