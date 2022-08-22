@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://IsoCarpetTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://PO_Idle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UX_Idle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Isometric Assets/Tiles/4 panel window.png" type="Texture" id=4]
+[ext_resource path="res://Isometric Assets/Plants/tall pot plant.png" type="Texture" id=5]
+[ext_resource path="res://Isometric Assets/Plants/tall plant hedges.png" type="Texture" id=6]
+[ext_resource path="res://Isometric Assets/Plants/short plant hedges.png" type="Texture" id=7]
+
+[node name="UXAndPO" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 433, 289 )
+scale = Vector2( 2, 2 )
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 64 )
+format = 1
+tile_data = PoolIntArray( -196613, 0, 0, -196612, 0, 0, -196611, 1, 0, -196610, 1, 0, -196609, 1, 0, -262144, 1, 0, -262143, 1, 0, -262142, 1, 0, -262141, 1, 0, -262140, 1, 0, -262139, 1, 0, -131077, 0, 0, -131076, 0, 0, -131075, 1, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -65541, 1, 0, -65540, 1, 0, -65539, 1, 0, -65538, 1, 0, -65537, 1, 0, -131072, 1, 0, -131071, 1, 0, -131070, 1, 0, -131069, 1, 0, -131068, 1, 0, -131067, 1, 0, -5, 1, 0, -4, 1, 0, -3, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, 65531, 0, 0, 65532, 0, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 131067, 0, 0, 131068, 0, 0, 131069, 1, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0 )
+
+[node name="4PanelWindow2" type="Sprite" parent="."]
+position = Vector2( 998, -10 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="4PanelWindow" type="Sprite" parent="."]
+position = Vector2( 134, -11 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="TallPlantHedges" type="Sprite" parent="."]
+position = Vector2( 317, 456 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 6 )
+
+[node name="TallPlantHedges2" type="Sprite" parent="."]
+position = Vector2( 116, 343 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 6 )
+
+[node name="TallPotPlant" type="Sprite" parent="."]
+position = Vector2( 566, 59 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+
+[node name="TallPotPlant" type="Sprite" parent="TallPotPlant"]
+position = Vector2( 27.6667, 14.6667 )
+texture = ExtResource( 5 )
+
+[node name="ShortPlantHedges" type="Sprite" parent="TallPotPlant/TallPotPlant"]
+position = Vector2( 206.667, 119.667 )
+texture = ExtResource( 7 )
+
+[node name="PO_Idle" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 546, 340 )
+scale = Vector2( 2, 2 )
+
+[node name="UX_Idle" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 722, 450 )
