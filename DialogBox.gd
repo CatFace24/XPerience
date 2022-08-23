@@ -22,7 +22,7 @@ func _ready():
 	$PopUpWindow.hide()
 	load_json(dialogue_file_path)
 	dialogBoxes.call_dialog_box(dialogs)
-	dialog_size = 	dialogBoxes.get_dialog_size()
+	dialog_size = 	dialogs.size()
 
 func load_json(file_path):
 	#Passes JSON file and returns it as a dictionary

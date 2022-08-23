@@ -61,10 +61,10 @@ anchor_left = 0.5
 anchor_top = 1.024
 anchor_right = 0.5
 anchor_bottom = 1.024
-margin_left = -263.5
-margin_top = -378.208
-margin_right = 417.5
-margin_bottom = -76.208
+margin_left = -317.5
+margin_top = -353.208
+margin_right = 363.5
+margin_bottom = -51.208
 script = ExtResource( 9 )
 button_path = NodePath("TextureButton")
 
@@ -144,6 +144,18 @@ expand = true
 autoplay = "NextDialog"
 anims/NextDialog = SubResource( 2 )
 anims/RESET = SubResource( 3 )
+
+[node name="PlayerChoices" type="Control" parent="DialogWindowAndIcon"]
+margin_left = 620.0
+margin_top = 56.0
+margin_right = 856.0
+margin_bottom = 306.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogWindowAndIcon/PlayerChoices"]
+margin_left = -8.0
+margin_top = 24.0
+margin_right = 224.0
+margin_bottom = 258.0
 
 [connection signal="tween_completed" from="DialogWindowAndIcon/Tween" to="DialogWindowAndIcon" method="_on_Tween_tween_completed"]
 [connection signal="pressed" from="DialogWindowAndIcon/TextureButton" to="." method="_on_TextureButton_pressed"]

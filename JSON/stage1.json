@@ -1,0 +1,16 @@
+{
+   "0": {"character": "Product Owner", "content": "Hey there UX Designer! This is the start of roleplaying", "next": "1"},
+   "1": {
+       "character": "UX", 
+       "content": "Sure thing, \n*wears a chicken mask* \nAsk me a question!",
+       "options": [
+           {"text": "What is the hardest part about your task?", "next": "2"},
+           {"text": "I was talking to another participant and they said this is the hardest part about the task. Do you agree with it?", "next": "3"}
+   ]
+           },
+   "2": {"character": "UX", "content": "This is the right question, great job! You may be a natural :D", "next": "4"},
+   "3": {"character": "UX", "content": "This question isn't the best. It is bad because of bias, balbala", "next": "4"},
+   "4": {"character": "Product Owner", "content": "This is dialogue with key 4", "next": "5"},
+   "5": {"character": "UX", "content": "Trying dialogue 5 pls work"}
+       
+}

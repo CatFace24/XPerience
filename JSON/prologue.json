@@ -1,0 +1,22 @@
+{
+    "0": {"character": "Manager", "content": "Welcome to the company! We are excited to have you as our newly hired Product Owner.", "next": "1"},
+    "1": {"character": "Product Owner", "content": "Hello Manager! Thank you for the warm welcome, looking forward to working with you!", "next": "2"},
+    "2": {"character": "Manager", "content": "Great! Let me brief you on our project at the moment.", "next": "3"},
+    "3": {"character": "Manager", "content": "The chickens at the construction site are facing a problem at the jobsite;", "next": "4"},
+    "4": {"character": "Manager", "content": "A measuring software is being developed and we are currently working on a particular feature that utilizes a brand new technology.", "next": "5"},
+    "5": {"character": "Manager", "content": "However, the chickens seem to have a hard time using the tools efficiently. There have been many reports of its bugs and inefficiencies.", "next": "6"},
+    "6": {"character": "Manager", "content": "If we manage to pull this off, it will be industry-breaking!", "next": "7"},
+    "7": {"character": "Manager", "content": "Clearly, a solution is needed to help the chickens. We have the resources to develop this measuring software and increase our efficiency!", "next": "8"},
+    "8": {"character": "Manager", "content": "But to do so, we need you and your team's help.", "next": "9"},
+    "9": {"character": "Manager", "content": "Let me introduce you to the team you will be working with.", "next": "10"},
+    "10": {"character": "Scrum Master", "content": "Hi! I will be the Scrum Master of the team who will be in charge of runing scrum ceremonies and hosting daily standups.", "next": "11"},
+    "11": {"character": "Dev", "content": "Hello! We are the dev dogs. We will cover the development stage and handle technical aspects of the project.", "next": "12"},
+    "12": {"character": "QA", "content": "Hi there! I am the Quality Assurance Engineer who will run tests and assess if the requirements of the project are met.", "next": "13"},
+    "13": {"character": "UX", "content": "Hey there, I am the UX Designer! I advocate for the end-users and improve the user experience of the products by applying user centricity in the project.", "next": "14"},
+    "14": {"character": "Product Owner", "content": "Looks like a great team, nice to meet everybody!", "next": "15"},
+    "15": {"character": "Manager", "content": "I have already done some backlog grooming with the solution architect and business analyst.", "next": "16"},
+    "16": {"character": "Manager", "content": "We would like you to focus on a particular feature this sprint!", "next": "17"},
+    "17": {"character": "Product Owner", "content": "I see, sounds like a plan!", "next": "19"},
+    "18": {"character": "Manager", "content": "Great! Time to get started on the project then; we are running on a dealine. All the best!"}
+
+}
