@@ -1,7 +1,6 @@
 extends Control
 
-
-##for popup window
+##for popup window (NOT COMPLETE)
 var pop_up_dialog = [
 	"Talk to the UX Designer to know more!"	
 ]
@@ -9,19 +8,30 @@ var pop_up_dialog = [
 ##This variable needs to recognize how many dialogs there are
 var dialog_index
 var dialogs
-var test = false
+
+##to trigger simulaiton after last pop up window
+var simulation = false
+
+##to trigger transition screen
+var transition = false
+
 ##Variable to store dialog_index to display certain diagrams for explanation through _process
 var pop_up_index
 
 onready var popUpWindow = get_node("PopUpWindow")
 onready var dialogBoxes = get_node("DialogBoxes")
+
 export(String, FILE, "*.json") var dialogue_file_path
 
 func _ready():
+	
+	$TransitionStageScene.set_process_input(false)
+	$TransitionStageScene.hide()
+	$SimulationScene.hide()
+	$FadeIn.hide()
 	dialogBoxes.hide()
-	popUpWindow.call_pop_up("EMPATHIZE", pop_up_dialog)
-	#load_json(dialogue_file_path)
-	#dialogBoxes.call_dialog_box(dialogs)
+	#$SimulationScene.hide()
+	popUpWindow.call_pop_up("STAGE 1 - EMPATHIZE", pop_up_dialog)
 
 ##method to read json file
 func load_json(file_path):
@@ -47,10 +57,57 @@ func switch_ux_sprite():
 
 ##switch to dialogs when popup finishes
 func _on_PopUpWindow_pop_up_window_complete():
-	load_json(dialogue_file_path)
-	dialogBoxes.show()
-	dialogBoxes.call_dialog_box(dialogs)
+
+	if simulation == false:
+		popUpWindow.hide()
+		load_json(dialogue_file_path)
+		dialogBoxes.show()
+		dialogBoxes.call_dialog_box(dialogs)
+		
+	elif simulation == true and transition == true:
+		$TransitionStageScene.set_process_input(true)
+		$TransitionStageScene.show()
+		$TransitionStageScene.set_content("STAGE 2", "Define", 2)
+		
+	else:
+		popUpWindow.hide()
+		$FadeIn.show()
+		$FadeIn.fade_in()
+
+func _on_FadeIn_fade_finished():
+	$SimulationScene.show()
+	$SimulationScene/LoadingBars.start_simulation()
+	#$SimulationScene/LoadingBars.set_process(true)
+	
+	#get_tree().change_scene("res://SimulationScene.tscn")
 
 func _on_DialogBoxes_button_pressed():
 	dialog_index = dialogBoxes.get_dialog_index()
 	switch_ux_sprite()
+	
+func _on_DialogBoxes_dialog_completed():
+	
+	dialogBoxes.hide()
+	
+	pop_up_dialog = [
+		"While the UX designer conducts the user interview, the developers can work on backend coding simultaneously!",
+		"The scrum master will also go around collecting daily updates from the team and perform scrum ceremonies."
+	]
+	
+	popUpWindow.show()
+	##need to open pop up window to explain that UX designer will perform interviews
+	popUpWindow.call_pop_up("STAGE 1 - EMPATHIZE", pop_up_dialog)
+	##then start simulation scene
+	simulation = true
+
+func _on_SimulationScene_bars_complete():
+	transition = true
+	
+	pop_up_dialog = [
+		"This is the end of Stage 1, you have finished the user interview, congrats!",
+		"Time to move on to the next stage!"
+	]
+
+	##get back pop up window??
+	popUpWindow.show()
+	popUpWindow.call_pop_up("STAGE 1 - EMPATHIZE", pop_up_dialog)

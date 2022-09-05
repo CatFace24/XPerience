@@ -146,10 +146,10 @@ anims/NextDialog = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 
 [node name="PlayerChoices" type="Control" parent="DialogWindowAndIcon"]
-margin_left = 620.0
-margin_top = 56.0
-margin_right = 856.0
-margin_bottom = 306.0
+margin_left = 700.0
+margin_top = 45.0
+margin_right = 936.0
+margin_bottom = 295.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DialogWindowAndIcon/PlayerChoices"]
 margin_left = -8.0
@@ -157,5 +157,6 @@ margin_top = 24.0
 margin_right = 224.0
 margin_bottom = 258.0
 
+[connection signal="dialog_finished" from="DialogWindowAndIcon" to="." method="_on_DialogWindowAndIcon_dialog_finished"]
 [connection signal="tween_completed" from="DialogWindowAndIcon/Tween" to="DialogWindowAndIcon" method="_on_Tween_tween_completed"]
 [connection signal="pressed" from="DialogWindowAndIcon/TextureButton" to="." method="_on_TextureButton_pressed"]

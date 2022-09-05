@@ -16,7 +16,7 @@
     "14": {"character": "Product Owner", "content": "Looks like a great team, nice to meet everybody!", "next": "15"},
     "15": {"character": "Manager", "content": "I have already done some backlog grooming with the solution architect and business analyst.", "next": "16"},
     "16": {"character": "Manager", "content": "We would like you to focus on a particular feature this sprint!", "next": "17"},
-    "17": {"character": "Product Owner", "content": "I see, sounds like a plan!", "next": "19"},
-    "18": {"character": "Manager", "content": "Great! Time to get started on the project then; we are running on a dealine. All the best!"}
+    "17": {"character": "Product Owner", "content": "I see, sounds like a plan!", "next": "18"},
+    "18": {"character": "Manager", "content": "Great! Time to get started on the project then; we are running on a deadline. All the best!"}
 
 }

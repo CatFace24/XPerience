@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Under.png-57ce22762d1d7db078ffbe405ec257c3.stex"
+path="res://.import/loading bar over.png-9d02b35a3d29f7dfc6e17cd18b5565bc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Loading Screen/Under.png"
-dest_files=[ "res://.import/Under.png-57ce22762d1d7db078ffbe405ec257c3.stex" ]
+source_file="res://Simulation Scene/loading bar over.png"
+dest_files=[ "res://.import/loading bar over.png-9d02b35a3d29f7dfc6e17cd18b5565bc.stex" ]
 
 [params]
 

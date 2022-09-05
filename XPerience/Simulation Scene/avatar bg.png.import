@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Under.png-57ce22762d1d7db078ffbe405ec257c3.stex"
+path="res://.import/avatar bg.png-bfa1ffeea7dd8fb4313f1c2570e3e035.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Loading Screen/Under.png"
-dest_files=[ "res://.import/Under.png-57ce22762d1d7db078ffbe405ec257c3.stex" ]
+source_file="res://Simulation Scene/avatar bg.png"
+dest_files=[ "res://.import/avatar bg.png-bfa1ffeea7dd8fb4313f1c2570e3e035.stex" ]
 
 [params]
 

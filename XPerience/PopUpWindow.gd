@@ -44,6 +44,7 @@ func get_dialog_index():
 
 ##to be called by current scene
 func display_text(stage, dialog_array):
+	dialog_index = 0
 	title = stage
 	dialog = dialog_array
 	
@@ -130,10 +131,9 @@ func load_dialog():
 		
 	else:
 		emit_signal("pop_up_window_finished")
-		queue_free()
+		#queue_free()
 	
 	dialog_index += 1
-	print("\nPopUpWindow2 load_dialog after default +1 dialog index, ", dialog_index)
 	all_finished = 1
 	back_button_just_pressed = false
 	

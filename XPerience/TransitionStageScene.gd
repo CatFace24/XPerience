@@ -5,13 +5,14 @@ var stage_number = "STAGE 1"
 var title = "Empathize"
 var quote = "\"This is a lengthy quote by someone \n-Author\""
 
-##variable to indicate which stage it is at 
+##variable to indicate which stage it is at, but scenes don't store...variables
 var stage_index = 1
 
 ##method to be called by other classes
-func set_content(stage_no, stage_name):
+func set_content(stage_no, stage_name, number):
 	stage_number = stage_no
 	title = stage_name
+	stage_index = number
 	
 	$StageNumber.set_text(stage_number)
 	$Title.set_text(title)
@@ -25,9 +26,12 @@ func _input(event):
 
 func change_to_next_scene():
 	if stage_index == 1:
-		stage_index += 1
+		#stage_index += 1
 		##go to Stage 1's scene 
 		get_tree().change_scene("res://StageOneEmpathize.tscn") 
+	
+	if stage_index == 2:
+		pass
 
 ##signal to show elements after bg animation finishes
 func _on_AnimationPlayer_animation_finished(anim_name):

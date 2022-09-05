@@ -15,8 +15,10 @@ var dialog_index
 var dialog_size
 var dialogs
 
+
 ##function to call text
 func _ready():
+	$TransitionStageScene.set_process_input(false)
 	$ConstructionSite.hide()
 	$TeamIntro.hide()
 	$PopUpWindow.hide()
@@ -41,6 +43,7 @@ func load_json(file_path):
 func _process(delta):
 	if dialog_index == dialog_size + 1:
 		$DialogBoxes.hide()
+	
 		
 ##method to switch between different scenes based on dialog index
 func switch_scenes():
@@ -68,7 +71,6 @@ func pop_up_window_img():
 	if pop_up_index != 1:
 		$SprintLayout.hide()
 		
-
 ##function to show pop up window
 func show_pop_up():
 	$DialogBoxes.hide()
@@ -87,7 +89,6 @@ func show_pop_up():
 	"Don't worry if it sounds foreign, more will be explained later! \n\nYour job is to go through all the stages and produce a successful feature for the chickens, good luck!"
 	
 	])
-
 
 ##Function to switch scenes (appropriately) when button from dialogbox is pressed
 func _on_DialogBoxes_button_pressed():
@@ -108,5 +109,6 @@ func _on_PopUpWindow_dialog_index_fully_updated():
 
 ##switch to transition scene after popup is completed
 func _on_PopUpWindow_pop_up_window_complete():
+	$TransitionStageScene.set_process_input(true)
 	$TransitionStageScene.show()
-	$TransitionStageScene.set_content("STAGE 1", "Empathize")
+	$TransitionStageScene.set_content("STAGE 1", "Empathize", 1)

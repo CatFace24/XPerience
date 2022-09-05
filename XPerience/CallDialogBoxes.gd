@@ -7,6 +7,7 @@ var dialog_size
 onready var dialog_box = get_node("DialogWindowAndIcon")
 
 signal button_pressed
+signal dialog_completed
 
 func _ready():
 	pass # Replace with function body.
@@ -27,3 +28,7 @@ func get_dialog_size():
 ##to be used for scene change in welcome stage
 func _on_TextureButton_pressed():
 	emit_signal("button_pressed")
+
+func _on_DialogWindowAndIcon_dialog_finished():
+	print("Dialog Finished!!!")
+	emit_signal("dialog_completed")

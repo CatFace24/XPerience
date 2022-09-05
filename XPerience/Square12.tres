@@ -3,5 +3,5 @@
 [ext_resource path="res://Font/quaver.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 36
+size = 28
 font_data = ExtResource( 1 )
