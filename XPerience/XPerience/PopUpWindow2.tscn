@@ -1,0 +1,109 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://UI/Pop up window/Pop up window bg.png" type="Texture" id=1]
+[ext_resource path="res://Font/quaver.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/Pop up window/back pressed button.png" type="Texture" id=3]
+[ext_resource path="res://UI/Pop up window/back default button.png" type="Texture" id=4]
+[ext_resource path="res://UI/Pop up window/next pressed button.png" type="Texture" id=5]
+[ext_resource path="res://UI/Pop up window/next default button.png" type="Texture" id=6]
+[ext_resource path="res://PopUpWindow.gd" type="Script" id=7]
+[ext_resource path="res://CallPopUpWindow.gd" type="Script" id=8]
+[ext_resource path="res://Font/Windows Regular.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 52
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 36
+extra_spacing_bottom = -1
+extra_spacing_char = 2
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="PopUpWindow" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+
+[node name="PopUpWindow" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.47
+anchor_right = 0.5
+anchor_bottom = 0.47
+margin_left = -365.0
+margin_top = -246.4
+margin_right = 393.0
+margin_bottom = 268.6
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+next_button_path = NodePath("NextButton")
+back_button_path = NodePath("BackButton")
+
+[node name="TextureRect" type="TextureRect" parent="PopUpWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="Title" type="RichTextLabel" parent="PopUpWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 35.0
+margin_right = -50.0
+margin_bottom = -415.0
+custom_colors/default_color = Color( 0.752941, 0.768627, 0.847059, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_text = "TITLE"
+text = "TITLE"
+
+[node name="Content" type="RichTextLabel" parent="PopUpWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 108.0
+margin_right = -50.0
+margin_bottom = -125.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_text = "This is a long dialogue explaining what the pop up window will explain"
+text = "This is a long dialogue explaining what the pop up window will explain"
+
+[node name="BackButton" type="TextureButton" parent="PopUpWindow"]
+margin_left = 41.0
+margin_top = 385.0
+margin_right = 89.0
+margin_bottom = 433.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="NextButton" type="TextureButton" parent="PopUpWindow"]
+margin_left = 621.0
+margin_top = 385.0
+margin_right = 669.0
+margin_bottom = 433.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+
+[node name="PageNo" type="Label" parent="PopUpWindow"]
+margin_left = 360.0
+margin_top = 420.0
+margin_right = 429.0
+margin_bottom = 455.0
+custom_colors/font_color = Color( 0.752941, 0.768627, 0.847059, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "? / ?"
+
+[node name="Tween" type="Tween" parent="PopUpWindow"]
+
+[connection signal="dialog_index_updated" from="PopUpWindow" to="." method="_on_PopUpWindow_dialog_index_updated"]
+[connection signal="pop_up_window_finished" from="PopUpWindow" to="." method="_on_PopUpWindow_pop_up_window_finished"]
+[connection signal="tween_completed" from="PopUpWindow/Tween" to="PopUpWindow" method="_on_Tween_tween_completed"]
