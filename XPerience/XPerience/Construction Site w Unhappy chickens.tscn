@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Isometric Assets/SpriteSheet/SpriteSheet_Chickens_Idle.png" type="Texture" id=1]
+[ext_resource path="res://Isometric Assets/Construction site.png" type="Texture" id=2]
+[ext_resource path="res://UI/Emotes/Annoyed emote.png" type="Texture" id=3]
+[ext_resource path="res://UI/Emotes/Question emote.png" type="Texture" id=4]
+[ext_resource path="res://UI/Emotes/Derp emote.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=4]
+resource_name = "RightChickenIdle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "MiddleChickenIdle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "LeftChickenIdle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.4, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[node name="Construction Site" type="Node2D"]
+
+[node name="ConstructionSite" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+texture = ExtResource( 2 )
+
+[node name="Right Chicken" type="KinematicBody2D" parent="."]
+
+[node name="Right Chicken" type="Sprite" parent="Right Chicken"]
+position = Vector2( 913, 359 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 3
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Right Chicken/Right Chicken"]
+autoplay = "RightChickenIdle"
+anims/RightChickenIdle = SubResource( 4 )
+
+[node name="Middle Chicken" type="KinematicBody2D" parent="."]
+
+[node name="Middle Chicken" type="Sprite" parent="Middle Chicken"]
+position = Vector2( 521, 325 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Middle Chicken/Middle Chicken"]
+autoplay = "MiddleChickenIdle"
+anims/MiddleChickenIdle = SubResource( 5 )
+
+[node name="Left Chicken" type="KinematicBody2D" parent="."]
+
+[node name="Left Chicken" type="Sprite" parent="Left Chicken"]
+position = Vector2( 387, 345 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 3
+frame = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Left Chicken/Left Chicken"]
+autoplay = "LeftChickenIdle"
+anims/LeftChickenIdle = SubResource( 6 )
+
+[node name="QuestionEmote" type="Sprite" parent="."]
+position = Vector2( 311, 245 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+
+[node name="AnnoyedEmote" type="Sprite" parent="."]
+position = Vector2( 928, 179 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
+[node name="DerpEmote" type="Sprite" parent="."]
+position = Vector2( 399, 162 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 5 )

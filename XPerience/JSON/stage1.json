@@ -1,16 +1,28 @@
 {
-   "0": {"character": "Product Owner", "content": "Hey there UX Designer! This is the start of roleplaying", "next": "1"},
-   "1": {
-       "character": "UX", 
-       "content": "Sure thing, \n*wears a chicken mask* \nAsk me a question!",
+   "0": {"character": "Product Owner", "content": "Hey there! One of the backlog is to identify low-level requirements of the users. I was wondering how can we go about this?", "next": "1"},
+   "1": {"character": "UX", "content": "There are many ways to empathize with users. One way is to perform user interviews!", "next": "2"},
+   "2": {"character": "UX", "content": "As part of user research, user interviews are a way to gather more in-depth data and research to better understand on our users", "next": "3"},
+   "3": {"character": "UX", "content": "Deciding the right person to interview and designing the right interview questions are important.", "next": "4"},
+   "4": {
+       "character": "UX", "content": "Let's roleplay! I will pretend to be the user. \n*wears chicken mask* \nStart by asking me a question!",  
        "options": [
-           {"text": "What is the hardest part about your task?", "next": "2"},
-           {"text": "I was talking to another participant and they said this is the hardest part about the task. Do you agree with it?", "next": "3"}
+           {"text": "What is the hardest part about your task?", "next": "5"},
+           {"text": "I was talking to another participant and they said this is the hardest part about the task. Do you agree with it?", "next": "6"}
    ]
-           },
-   "2": {"character": "UX", "content": "This is the right question, great job! You may be a natural :D", "next": "4"},
-   "3": {"character": "UX", "content": "This question isn't the best. It is bad because of bias, balbala", "next": "4"},
-   "4": {"character": "Product Owner", "content": "This is dialogue with key 4", "next": "5"},
-   "5": {"character": "UX", "content": "Trying dialogue 5 pls work"}
+},
+   "5": {"character": "UX", "content": "That's a good question! It is quite open ended, great job!", "next": "8"},
+   "6": {"character": "UX", "content": "That's not an ideal question. It would bring other participants' influence into the interview, causing bias.", "next": "7"},
+   "7": {"character": "UX", "content": "Try to keep the interview within the context of the user you are interviewing, that's the golden rule!", "next": "8"},
+   "8": {
+       "character": "UX", "content": "Let's try another one.",  
+       "options": [
+           {"text": "Which feature is the most important to you: A or B?", "next": "9"},
+           {"text": "What features do you use? Which of it is the most important for you?", "next": "12"}
+]},
+   "9": {"character": "UX", "content": "Unforunately, providing options in interviews is not ideal. The user may end up choosing an option even when none matches just because, well, there aren't any other options.", "next": "10"},
+   "10": {"character": "UX", "content": "This can leave out valuable information. Thus, a better way is to ask what feature do they use, and which they find more important!", "next": "11"},
+   "11": {"character": "UX", "content": "That way, we can find what matters most to the user. Remember, open-ended questions are the way!", "next": "13"},
+   "12": {"character": "UX", "content": "That's a great question! Asking an open-ended question ensures that the user's answers are not limited to the options we provide.", "next": "11"},
+   "13": {"character": "Product Owner", "content": "I've definitely learnt alot, thanks for this insightful session!"}
        
 }

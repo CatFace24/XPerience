@@ -1,0 +1,28 @@
+{
+   "0": {"character": "Product Owner", "content": "Hey there! One of the tasks is to identify the requirements of the users by finding out their wants and needs.", "next": "1"},
+   "1": {"character": "UX", "content": "There are many ways to empathize with users. One way is to perform user interviews!", "next": "2"},
+   "2": {"character": "UX", "content": "User interviews help to gather more in-depth data for research to understand our users better.", "next": "3"},
+   "3": {"character": "UX", "content": "Deciding the right person to interview and designing the right interview questions are important.", "next": "4"},
+   "4": {
+   "character": "UX", "content": "Let's roleplay! I will pretend to be the user. \n*wears chicken mask* \nStart by asking me a question!",
+   "options": [
+   {"text": "What is the hardest part about your task?", "next": "5"},
+   {"text": "I was talking to another participant and they said this is the hardest part about the task. Do you agree with it?", "next": "6"}
+   ]
+   },
+   "5": {"character": "UX", "content": "That's a good question! It is quite open ended, great job! Open ended questions are important as it allows you to find out more than you anticipate, which can reveal more about the user!", "next": "8"},
+   "6": {"character": "UX", "content": "That's not an ideal question. It would bring other participants' opinions into the interview, influencing their answers.", "next": "7"},
+   "7": {"character": "UX", "content": "Try to keep the interview within the context of the user you are interviewing and avoid bias by not giving personal or other opinions, that's the golden rule!", "next": "8"},
+   "8": {
+   "character": "UX", "content": "Let's try another one.",
+   "options": [
+   {"text": "Which feature is the most important to you: A or B?", "next": "9"},
+   {"text": "What features do you use? Which of it is the most important for you?", "next": "12"}
+   ]},
+   "9": {"character": "UX", "content": "Unfortunately, providing options in interviews is not ideal because it forces the users to pick one, which can cause bias. Open ended questions, again, are the best as it allows the users to explain, which can reveal their hopes and needs!", "next": "10"},
+   "10": {"character": "UX", "content": "This can leave out valuable information. Thus, a better way is to ask what feature do they use, and which they find more important!", "next": "11"},
+   "11": {"character": "UX", "content": "That way, we can find what matters most to the user. Remember, open-ended questions are the way!", "next": "13"},
+   "12": {"character": "UX", "content": "That's a great question! Asking an open-ended question allows the users to explain, which can reveal their hopes and needs!", "next": "11"},
+   "13": {"character": "Product Owner", "content": "I've definitely learnt a lot, thanks for this insightful session!"}
+   
+   }

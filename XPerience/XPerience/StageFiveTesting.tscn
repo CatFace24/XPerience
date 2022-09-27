@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://UXAndPO.tscn" type="PackedScene" id=1]
+[ext_resource path="res://PO_Idle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UX_Idle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://HappyEmoteForUX.tscn" type="PackedScene" id=4]
+[ext_resource path="res://DialogBoxes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://FadeInBlack/FadeIn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://PopUpWindow2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://TransitionStageScene.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Menu Buttons.tscn" type="PackedScene" id=10]
+[ext_resource path="res://StageFiveDialogs.gd" type="Script" id=11]
+[ext_resource path="res://UserInterview.tscn" type="PackedScene" id=12]
+
+[node name="StageFiveTesting" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="StageFiveDialogs" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -430.0
+margin_top = -696.0
+margin_right = 506.0
+margin_bottom = -40.0
+script = ExtResource( 11 )
+dialogue_file_path = "res://JSON/stage5.json"
+
+[node name="UXAndPO" parent="StageFiveDialogs" instance=ExtResource( 1 )]
+position = Vector2( -199, -17 )
+
+[node name="UX_Idle" parent="StageFiveDialogs" instance=ExtResource( 3 )]
+position = Vector2( 513, 399 )
+
+[node name="HappyEmote" parent="StageFiveDialogs" instance=ExtResource( 4 )]
+position = Vector2( 534, 290 )
+
+[node name="PO_IDle" parent="StageFiveDialogs" instance=ExtResource( 2 )]
+position = Vector2( 354, 325 )
+scale = Vector2( 2, 2 )
+
+[node name="DialogBoxes" parent="StageFiveDialogs" instance=ExtResource( 5 )]
+visible = false
+anchor_left = 0.514
+anchor_top = 1.053
+anchor_right = 0.514
+anchor_bottom = 1.053
+margin_left = -349.104
+margin_top = -245.768
+margin_right = 290.896
+margin_bottom = 43.2319
+
+[node name="FadeIn" parent="StageFiveDialogs" instance=ExtResource( 6 )]
+margin_left = -210.0
+margin_top = -24.0
+margin_right = 134.0
+margin_bottom = 40.0
+
+[node name="UserInterview" parent="StageFiveDialogs" instance=ExtResource( 12 )]
+visible = false
+position = Vector2( -210, -24 )
+
+[node name="PopUpWindow" parent="StageFiveDialogs" instance=ExtResource( 8 )]
+anchor_left = 0.468
+anchor_top = 1.064
+anchor_right = 0.468
+anchor_bottom = 1.064
+margin_left = -40.048
+margin_top = -405.984
+margin_right = -0.0480347
+margin_bottom = -365.984
+
+[node name="TransitionStageScene" parent="StageFiveDialogs" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( -210, -24 )
+
+[node name="Menu Buttons" parent="." instance=ExtResource( 10 )]
+
+[connection signal="button_pressed" from="StageFiveDialogs/DialogBoxes" to="StageFiveDialogs" method="_on_DialogBoxes_button_pressed"]
+[connection signal="dialog_completed" from="StageFiveDialogs/DialogBoxes" to="StageFiveDialogs" method="_on_DialogBoxes_dialog_completed"]
+[connection signal="fade_finished" from="StageFiveDialogs/FadeIn" to="StageFiveDialogs" method="_on_FadeIn_fade_finished"]
+[connection signal="int_complete" from="StageFiveDialogs/UserInterview" to="StageFiveDialogs" method="_on_UserInterview_int_complete"]
+[connection signal="pop_up_window_complete" from="StageFiveDialogs/PopUpWindow" to="StageFiveDialogs" method="_on_PopUpWindow_pop_up_window_complete"]

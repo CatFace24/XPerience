@@ -29,4 +29,5 @@ func _on_PopUpWindow_dialog_index_updated():
 	
 
 func _on_PopUpWindow_pop_up_window_finished():
+	print("Pop Up Finished!!!")
 	emit_signal("pop_up_window_complete")

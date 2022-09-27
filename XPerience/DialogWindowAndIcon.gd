@@ -27,6 +27,7 @@ var option = false
 #export(String, FILE, "*.json") var dialogue_file
 var dialog = []
 var dialog_index = 0
+signal dialog_finished
 
 ##function to call text
 #func _ready():
@@ -39,7 +40,7 @@ var dialog_index = 0
 	#button.connect("pressed", self, "load_convo")
 	
 func display_player_options():
-	option = true
+
 	$PlayerChoices.visible = true
 	$TextureButton.visible = false
 	###ITS WORKING but need to set a function to toggle it on and off whenever 'options' are present
@@ -97,6 +98,7 @@ func display_player_options():
 		##connecting button to function
 		btn.connect("pressed", self, "_on_PlayerOptionButton_pressed", [option.next])
 		
+		option = false
 		
 ##function for when a player option is pressed
 func _on_PlayerOptionButton_pressed(next):
@@ -148,9 +150,9 @@ func display_dialog(dialog_json):
 ##loading both functions to run at the same time
 func load_convo():
 	load_dialog()
-	#load_icon_and_scene()
 
 func load_dialog():
+	print("\nload_dialog index: ", dialog_index)
 	option = false
 	$PlayerChoices.hide()
 	##if dialog index is less than dialog array size, means there is still text
@@ -165,20 +167,27 @@ func load_dialog():
 			$RichTextLabel, "percent_visible",
 			0.0, 1, (dialog[str(dialog_index)]["content"].length()/24) , Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 		$Tween.start()
-	
+		
 		if dialog[str(dialog_index)].has("options"):
-			display_player_options()
+			#dialog_index += 1
+			#display_player_options()
+			option = true
+		
+		print(dialog_index, " has next? ", dialog[str(dialog_index)].has("next"))
 		
 	else:
+		emit_signal("dialog_finished") ##not passed to parents
 		queue_free() ##safely DESTROYS the node
-	
 
 	if dialog_index != (dialog.size() - 1) and dialog_index < dialog.size():
 		if dialog[str(dialog_index)].has("next"):
 			dialog_index = dialog[str(dialog_index)]["next"].to_int()
+			print("\nload_dialog index after if statement of next: ", dialog_index)
+			print("NEXT: ", dialog[str(dialog_index-1)]["next"].to_int())
 		
 	else: 
 		dialog_index += 1
+		print("\nload_dialog index after +1: ", dialog_index)
 
 
 ##function to hide all icons
@@ -226,5 +235,16 @@ func load_icon_and_scene():
 
 ##Function to show when one dialogue is finished
 func _on_Tween_tween_completed(object, key):
+	print("\nload_dialog index in tween complete signal ", dialog_index)
+	print("\ndialog_index - 1 ", dialog_index - 1)
+	print("has options tween dialog_index: ", dialog[str(dialog_index-1)].has("options"))
 	finished = true
+	
+	#if dialog[str(dialog_index-1)].has("options"):
+		#display_player_options()
+	
+	if option == true:
+		display_player_options()
+		
+	
 
