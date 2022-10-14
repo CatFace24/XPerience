@@ -7,14 +7,15 @@
 [ext_resource path="res://UI/Dialogue/UX head icon for dialogues.png" type="Texture" id=5]
 [ext_resource path="res://UI/Dialogue/Dev head icon for dialogues.png" type="Texture" id=6]
 [ext_resource path="res://UI/Dialogue/Scrum Master Head Icon dialogue.png" type="Texture" id=7]
-[ext_resource path="res://Font/quaver.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Font/Windows Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://DialogWindowAndIcon.gd" type="Script" id=9]
 [ext_resource path="res://UI/Dialogue/Next Dialog.png" type="Texture" id=10]
 [ext_resource path="res://CallDialogBoxes.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=1]
-size = 28
-extra_spacing_bottom = 3
+size = 32
+extra_spacing_bottom = -5
+extra_spacing_char = 1
 font_data = ExtResource( 8 )
 
 [sub_resource type="Animation" id=2]

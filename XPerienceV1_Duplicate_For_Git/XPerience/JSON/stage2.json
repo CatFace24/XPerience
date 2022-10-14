@@ -1,0 +1,17 @@
+{
+
+    "0": {"character": "Product Owner", "content": "With the data at hand, we can move forward and define the user's pain points? How can we go about it?", "next": "1"},
+    "1": {"character": "UX", "content": "We can create a user persona together! That way, everyone will have the same idea of who the users are.", "next": "2"},
+    "2": {"character": "Product Owner", "content": "Great, sounds like a plan!", "next": "3"},
+    "3": {"character": "UX", "content": "Let's get started then!", "next": "4"},
+    "4": {"character": "Product Owner", "content": "...", "next": "5"},
+    "5": {"character": "UX", "content": "Why the silence, is something wrong?", "next": "6"},
+    "6": {"character": "Product Owner", "content": "I don't think we are familiar with how to create a user persona, or know what a user persona even is, in fact.", "next": "7"},
+    "7": {"character": "UX", "content": "Oh haha! No worries. It's quite simple actually, let me explain.", "next": "8"},
+    "8": {"character": "UX", "content": "Personas are semi-fictional archetypes based on real users that represent a group of users. This persona will be presented in a short document and reflect background information of users, such as behaviours, goals, skills, motivations, pain points, etc.", "next": "9"},
+    "9": {"character": "UX", "content": "Creating user personas helps the team gain a deeper understanding of the target audience. It helps us build empathy with the users, acting as a directional guide to make better decisions!", "next": "10"},
+    "10": {"character": "Product Owner", "content": "I see, that's great to know! Let us create our user persona together."}
+
+    
+
+}

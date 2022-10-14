@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://StageThreeDialogs.gd" type="Script" id=1]
+[ext_resource path="res://BrainstormGame.tscn" type="PackedScene" id=2]
+[ext_resource path="res://PopUpWindow2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://BrainstormGameTwo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://DialogBoxes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://TransitionStageScene.tscn" type="PackedScene" id=6]
+
+[node name="StageThreeIdeate" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="StageThreeDialogs" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+dialogue_file_path = "res://JSON/stage3.json"
+
+[node name="BrainstormGame" parent="StageThreeDialogs" instance=ExtResource( 2 )]
+
+[node name="BrainstormGameTwo" parent="StageThreeDialogs" instance=ExtResource( 4 )]
+visible = false
+
+[node name="PopUpWindow" parent="StageThreeDialogs" instance=ExtResource( 3 )]
+margin_left = 627.0
+margin_top = 312.0
+margin_right = 627.0
+margin_bottom = 312.0
+
+[node name="DialogBoxes" parent="StageThreeDialogs" instance=ExtResource( 5 )]
+visible = false
+anchor_left = 17.337
+anchor_top = 17.973
+anchor_right = 17.337
+anchor_bottom = 17.973
+margin_left = -339.48
+margin_top = -301.92
+margin_right = 339.52
+margin_bottom = 26.08
+
+[node name="TransitionStageScene" parent="StageThreeDialogs" instance=ExtResource( 6 )]
+visible = false
+
+[connection signal="all_connected" from="StageThreeDialogs/BrainstormGame" to="StageThreeDialogs" method="_on_BrainstormGame_all_connected"]
+[connection signal="all_connected" from="StageThreeDialogs/BrainstormGameTwo" to="StageThreeDialogs" method="_on_BrainstormGameTwo_all_connected"]
+[connection signal="pop_up_window_complete" from="StageThreeDialogs/PopUpWindow" to="StageThreeDialogs" method="_on_PopUpWindow_pop_up_window_complete"]
+[connection signal="dialog_completed" from="StageThreeDialogs/DialogBoxes" to="StageThreeDialogs" method="_on_DialogBoxes_dialog_completed"]
