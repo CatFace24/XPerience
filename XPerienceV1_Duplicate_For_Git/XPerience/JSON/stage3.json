@@ -1,0 +1,10 @@
+{
+    "0": {"character": "Product Owner", "content": "Right, I think this idea is great, does everyone agree with this idea?", "next": "1"},
+    "1": {"character": "UX", "content": "Yep! Looks good to me.", "next": "2"},
+    "2": {"character": "Dev", "content": "Looks good for us!", "next": "3"},
+    "3": {"character": "QA", "content": "I agree!", "next": "4"},
+    "4": {"character": "Product Owner", "content": "Amazing job team! Let us try out this idea."}
+    
+}
+    
+    

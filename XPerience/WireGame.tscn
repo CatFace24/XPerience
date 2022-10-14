@@ -1,0 +1,497 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://WireGameAssets/connector battery.png" type="Texture" id=1]
+[ext_resource path="res://WireGameAssets/connector bulb dim.png" type="Texture" id=2]
+[ext_resource path="res://WireGameAssets/connector bulb bright.png" type="Texture" id=3]
+[ext_resource path="res://WireGameAssets/wire texture.png" type="Texture" id=4]
+[ext_resource path="res://WireGame.gd" type="Script" id=5]
+[ext_resource path="res://WireGameAssets/red connector bulb dim.png" type="Texture" id=6]
+[ext_resource path="res://WireGameAssets/red connector battery.png" type="Texture" id=7]
+[ext_resource path="res://WireGameAssets/red wire texture.png" type="Texture" id=8]
+[ext_resource path="res://WireGameAssets/red connector bulb bright.png" type="Texture" id=9]
+[ext_resource path="res://WireGameAssets/teal connector bulb dim.png" type="Texture" id=10]
+[ext_resource path="res://WireGameAssets/teal connector bulb bright.png" type="Texture" id=11]
+[ext_resource path="res://WireGameAssets/teal wire texture.png" type="Texture" id=12]
+[ext_resource path="res://WireGameAssets/teal connector battery.png" type="Texture" id=13]
+[ext_resource path="res://WireGameAssets/orange connector bulb dim.png" type="Texture" id=14]
+[ext_resource path="res://WireGameAssets/orange connector bulb bright.png" type="Texture" id=15]
+[ext_resource path="res://WireGameAssets/orange connector battery.png" type="Texture" id=16]
+[ext_resource path="res://WireGameAssets/orange wire texture.png" type="Texture" id=17]
+[ext_resource path="res://DialogBoxes.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Font/W95FA.otf" type="DynamicFontData" id=20]
+[ext_resource path="res://Persona/Empty Persona.png" type="Texture" id=21]
+[ext_resource path="res://Font/Windows Regular.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://WirePurpleGrey.gd" type="Script" id=23]
+[ext_resource path="res://WireGameRed.gd" type="Script" id=24]
+[ext_resource path="res://WireGameTeal.gd" type="Script" id=25]
+[ext_resource path="res://WireGameOrange.gd" type="Script" id=26]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 28.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 28.0
+
+[sub_resource type="DynamicFont" id=3]
+size = 56
+font_data = ExtResource( 20 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "TextBob"
+length = 1.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 320, 528 ), Vector2( 320, 520 ) ]
+}
+
+[sub_resource type="DynamicFont" id=5]
+size = 18
+extra_spacing_bottom = -3
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 36
+extra_spacing_char = -1
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 24
+extra_spacing_bottom = -3
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 32
+font_data = ExtResource( 22 )
+
+[node name="WireGame" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 1, 1, 1, 0.929412 )
+
+[node name="PurpleGrey" type="Node2D" parent="."]
+script = ExtResource( 23 )
+
+[node name="Line2D" type="Line2D" parent="PurpleGrey"]
+position = Vector2( -2, 0 )
+points = PoolVector2Array( 95, 150 )
+width = 12.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 4 )
+texture_mode = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="PurpleGrey"]
+position = Vector2( 93, 150 )
+enabled = true
+cast_to = Vector2( 30, 0 )
+
+[node name="Battery" type="StaticBody2D" parent="PurpleGrey"]
+position = Vector2( 93, 150 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PurpleGrey/Battery"]
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="Sprite" type="Sprite" parent="PurpleGrey/Battery"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+
+[node name="LED" type="Node2D" parent="PurpleGrey"]
+position = Vector2( 403, 365 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PurpleGrey/LED"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PurpleGrey/LED/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="DimLED" type="Sprite" parent="PurpleGrey/LED/StaticBody2D"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="BrightLED" type="Sprite" parent="PurpleGrey/LED/StaticBody2D"]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Red" type="Node2D" parent="."]
+script = ExtResource( 24 )
+
+[node name="Line2D" type="Line2D" parent="Red"]
+position = Vector2( -2, 0 )
+points = PoolVector2Array( 95, 257 )
+width = 12.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 8 )
+texture_mode = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="Red"]
+position = Vector2( 93, 257 )
+enabled = true
+cast_to = Vector2( 30, 0 )
+
+[node name="Battery" type="StaticBody2D" parent="Red"]
+position = Vector2( 93, 257 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Red/Battery"]
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="Sprite" type="Sprite" parent="Red/Battery"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="LED" type="Node2D" parent="Red"]
+position = Vector2( 403, 473 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Red/LED"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Red/LED/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="DimLED" type="Sprite" parent="Red/LED/StaticBody2D"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="BrightLED" type="Sprite" parent="Red/LED/StaticBody2D"]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="Teal" type="Node2D" parent="."]
+script = ExtResource( 25 )
+
+[node name="Line2D" type="Line2D" parent="Teal"]
+position = Vector2( -2, 0 )
+points = PoolVector2Array( 95, 365 )
+width = 12.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 12 )
+texture_mode = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="Teal"]
+position = Vector2( 93, 365 )
+enabled = true
+cast_to = Vector2( 30, 0 )
+
+[node name="Battery" type="StaticBody2D" parent="Teal"]
+position = Vector2( 93, 365 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teal/Battery"]
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="Sprite" type="Sprite" parent="Teal/Battery"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+
+[node name="LED" type="Node2D" parent="Teal"]
+position = Vector2( 403, 257 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Teal/LED"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teal/LED/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="DimLED" type="Sprite" parent="Teal/LED/StaticBody2D"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="BrightLED" type="Sprite" parent="Teal/LED/StaticBody2D"]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+
+[node name="Orange" type="Node2D" parent="."]
+script = ExtResource( 26 )
+
+[node name="Line2D" type="Line2D" parent="Orange"]
+position = Vector2( -2, 0 )
+points = PoolVector2Array( 95, 473 )
+width = 12.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 17 )
+texture_mode = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="Orange"]
+position = Vector2( 93, 473 )
+enabled = true
+cast_to = Vector2( 30, 0 )
+
+[node name="Battery" type="StaticBody2D" parent="Orange"]
+position = Vector2( 93, 473 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orange/Battery"]
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="Sprite" type="Sprite" parent="Orange/Battery"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 16 )
+
+[node name="LED" type="Node2D" parent="Orange"]
+position = Vector2( 403, 150 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Orange/LED"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orange/LED/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="DimLED" type="Sprite" parent="Orange/LED/StaticBody2D"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 14 )
+
+[node name="BrightLED" type="Sprite" parent="Orange/LED/StaticBody2D"]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 15 )
+
+[node name="Caption" type="Label" parent="."]
+margin_left = 320.0
+margin_top = 520.0
+margin_right = 943.0
+margin_bottom = 631.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Connect the wires to
+complete the persona!"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Caption"]
+autoplay = "TextBob"
+anims/TextBob = SubResource( 4 )
+
+[node name="EmptyPersona" type="Sprite" parent="."]
+position = Vector2( 409, -14 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 21 )
+offset = Vector2( 292.667, 212.667 )
+
+[node name="EmptyPersonaContent" type="Control" parent="."]
+margin_left = 545.058
+margin_top = 270.0
+margin_right = 585.058
+margin_bottom = 310.0
+
+[node name="Profile" type="Label" parent="EmptyPersonaContent"]
+margin_right = 145.0
+margin_bottom = 66.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Name: Chick-Fil-A
+Job: Worker
+Edu: Bachelor of KFC"
+
+[node name="Environment" type="Label" parent="EmptyPersonaContent"]
+margin_left = 4.94214
+margin_top = 123.0
+margin_right = 160.942
+margin_bottom = 167.0
+custom_colors/font_color = Color( 0.498039, 0.466667, 0.403922, 0.490196 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Environment"
+align = 1
+
+[node name="Competencies" type="Label" parent="EmptyPersonaContent"]
+margin_left = 169.503
+margin_top = -103.0
+margin_right = 349.503
+margin_bottom = -59.0
+custom_colors/font_color = Color( 0.498039, 0.466667, 0.403922, 0.490196 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Competencies"
+align = 1
+
+[node name="Responsibilities" type="Label" parent="EmptyPersonaContent"]
+margin_left = 410.234
+margin_top = -102.0
+margin_right = 598.234
+margin_bottom = -58.0
+custom_colors/font_color = Color( 0.498039, 0.466667, 0.403922, 0.490196 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Responsibilities"
+align = 1
+
+[node name="Motivations" type="Label" parent="EmptyPersonaContent"]
+margin_left = 207.942
+margin_top = 11.0
+margin_right = 349.942
+margin_bottom = 55.0
+custom_colors/font_color = Color( 0.498039, 0.466667, 0.403922, 0.490196 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Motivations"
+align = 1
+
+[node name="Goals" type="Label" parent="EmptyPersonaContent"]
+margin_left = 209.942
+margin_top = 124.0
+margin_right = 335.942
+margin_bottom = 168.0
+custom_colors/font_color = Color( 0.498039, 0.466667, 0.403922, 0.490196 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Goals"
+align = 1
+
+[node name="Needs" type="Label" parent="EmptyPersonaContent"]
+margin_left = 429.942
+margin_top = 9.0
+margin_right = 555.942
+margin_bottom = 53.0
+custom_colors/font_color = Color( 0.498039, 0.466667, 0.403922, 0.490196 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Needs"
+align = 1
+
+[node name="Pain Points" type="Label" parent="EmptyPersonaContent"]
+margin_left = 432.942
+margin_top = 124.0
+margin_right = 574.942
+margin_bottom = 168.0
+custom_colors/font_color = Color( 0.498039, 0.466667, 0.403922, 0.490196 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Pain Points"
+align = 1
+
+[node name="CompletedPersona" type="Sprite" parent="."]
+visible = false
+position = Vector2( 648, 358 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 21 )
+
+[node name="CompletedPersonaContent" type="Control" parent="."]
+visible = false
+margin_left = 648.0
+margin_top = 358.0
+margin_right = 688.0
+margin_bottom = 398.0
+
+[node name="Profile" type="Label" parent="CompletedPersonaContent"]
+margin_left = -401.519
+margin_top = 102.667
+margin_right = -214.519
+margin_bottom = 189.667
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Environment:
+Noisy jobsites
+Quiet meeting rooms"
+
+[node name="Environment" type="Label" parent="CompletedPersonaContent"]
+margin_left = -402.0
+margin_top = -45.0
+margin_right = -215.0
+margin_bottom = 42.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Name: Chick-Fil-A
+Job: Worker
+Edu: Bachelor of KFC"
+
+[node name="Competencies" type="Label" parent="CompletedPersonaContent"]
+margin_left = -192.344
+margin_top = -197.333
+margin_right = -84.3442
+margin_bottom = -155.333
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Competencies:
+3+ years in the industry
+Quick transport ability"
+
+[node name="Responsibilities" type="Label" parent="CompletedPersonaContent"]
+margin_left = 131.034
+margin_top = -197.333
+margin_right = 265.034
+margin_bottom = -155.333
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Responsibilities:
+Measure and track inventory
+Drilling and assembling"
+
+[node name="Motivations" type="Label" parent="CompletedPersonaContent"]
+margin_left = -137.045
+margin_top = -45.3333
+margin_right = -3.04523
+margin_bottom = -3.33334
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Motivations:
+Workers can't work
+without tools"
+
+[node name="Goals" type="Label" parent="CompletedPersonaContent"]
+margin_left = -137.045
+margin_top = 106.667
+margin_right = -3.04523
+margin_bottom = 148.667
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Goals:
+Account for inventory
+Securely drill screws"
+
+[node name="Needs" type="Label" parent="CompletedPersonaContent"]
+margin_left = 131.034
+margin_top = -46.6667
+margin_right = 265.034
+margin_bottom = -4.66669
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Needs:
+Right means to track
+inventory"
+
+[node name="Pain Points" type="Label" parent="CompletedPersonaContent"]
+margin_left = 125.024
+margin_top = 104.0
+margin_right = 267.024
+margin_bottom = 146.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Pain Points:
+Not all tools are returned
+Some tools not feather-friendly"
+
+[node name="DialogBoxes" parent="." instance=ExtResource( 19 )]
+visible = false
+margin_left = 670.0
+margin_top = 766.0
+margin_right = 670.0
+margin_bottom = 766.0
+
+[node name="CompletedCaption" type="Label" parent="."]
+visible = false
+margin_left = 251.0
+margin_top = 622.0
+margin_right = 1076.0
+margin_bottom = 703.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "Read through the persona to understand the chickens better.
+Click the arrow once you're done!"
+align = 1
+
+[connection signal="purple_connected" from="PurpleGrey" to="." method="_on_PurpleGrey_purple_connected"]
+[connection signal="red_connected" from="Red" to="." method="_on_Red_red_connected"]
+[connection signal="teal_connected" from="Teal" to="." method="_on_Teal_teal_connected"]
+[connection signal="orange_connected" from="Orange" to="." method="_on_Orange_orange_connected"]

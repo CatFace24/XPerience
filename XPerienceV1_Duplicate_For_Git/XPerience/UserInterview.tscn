@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scene Sheets/Scene Sheet Testing scene Happy animation.png" type="Texture" id=1]
+[ext_resource path="res://Scene Sheets/Scene Sheet Testing scene neutral animation.png" type="Texture" id=2]
+[ext_resource path="res://UserInterview.gd" type="Script" id=3]
+[ext_resource path="res://UI/Loading Screen/Over.png" type="Texture" id=4]
+[ext_resource path="res://UI/Loading Screen/Straight Progress.png" type="Texture" id=5]
+[ext_resource path="res://UI/Loading Screen/Under.png" type="Texture" id=6]
+[ext_resource path="res://InterviewProgress.gd" type="Script" id=7]
+[ext_resource path="res://FadeInBlack/FadeIn.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Animation" id=3]
+resource_name = "HappyUser"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "HappyUser"
+
+[sub_resource type="Animation" id=2]
+resource_name = "TestingProgress"
+length = 3.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[node name="UserInterview" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="TestingProgress" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 4
+vframes = 2
+frame = 3
+script = ExtResource( 7 )
+
+[node name="HappyUser" type="Sprite" parent="TestingProgress"]
+visible = false
+texture = ExtResource( 1 )
+hframes = 2
+vframes = 2
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TestingProgress/HappyUser"]
+anims/HappyUser = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TestingProgress"]
+anims/HappyUser = SubResource( 1 )
+anims/TestingProgress = SubResource( 2 )
+
+[node name="InterviewProgress" type="TextureProgress" parent="TestingProgress"]
+margin_left = -305.0
+margin_top = 184.5
+margin_right = 195.0
+margin_bottom = 248.5
+rect_rotation = -90.0
+rect_scale = Vector2( 0.6, 0.6 )
+texture_under = ExtResource( 6 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="TestingProgress"]
+wait_time = 0.2
+
+[node name="FadeIn" parent="TestingProgress" instance=ExtResource( 8 )]
+margin_left = -320.0
+margin_top = -180.0
+margin_right = -320.0
+margin_bottom = -180.0
+
+[connection signal="int_finished" from="TestingProgress" to="." method="_on_TestingProgress_int_finished"]
+[connection signal="value_changed" from="TestingProgress/InterviewProgress" to="TestingProgress" method="_on_InterviewProgress_value_changed"]
+[connection signal="timeout" from="TestingProgress/Timer" to="TestingProgress" method="_on_Timer_timeout"]
+[connection signal="fade_finished" from="TestingProgress/FadeIn" to="TestingProgress" method="_on_FadeIn_fade_finished"]
