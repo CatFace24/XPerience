@@ -16,6 +16,10 @@ var wire = false
 var persona = false
 ##Variable to store dialog_index to display certain diagrams for explanation through _process
 var pop_up_index
+##variable to change bgm
+var main_bgm
+var wire_game_bgm = preload("res://SoundEffects/happier bgm short.wav")
+
 
 onready var pop_up_window = get_node("PopUpWindow")
 onready var dialog_boxes = get_node("DialogBoxes")
@@ -62,6 +66,9 @@ func _on_PopUpWindow_pop_up_window_complete():
 		
 	elif wire == true and persona == false:
 		pop_up_window.hide()
+		main_bgm = $"/root/MainBGM" 
+		main_bgm.stream = wire_game_bgm
+		main_bgm.play()
 		$WireGame.show()
 		$WireGame.set_process_input(true)
 
@@ -96,6 +103,8 @@ func _on_PopUpWindow_dialog_index_fully_updated():
 
 
 func _on_WireGame_all_connected():
+	
+	$CompletedSound.play()
 	persona = true
 	
 	pop_up_dialog = [

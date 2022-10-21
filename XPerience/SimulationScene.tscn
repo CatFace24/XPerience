@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://IsoCarpetTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Isometric Assets/Tiles/4 panel window.png" type="Texture" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://Menu Buttons.tscn" type="PackedScene" id=25]
 [ext_resource path="res://FadeInBlack/FadeIn.tscn" type="PackedScene" id=26]
 [ext_resource path="res://SimulationScene.gd" type="Script" id=27]
+[ext_resource path="res://SoundEffects/complete or win sound effect.wav" type="AudioStream" id=28]
 
 [sub_resource type="Animation" id=1]
 resource_name = "POSitting"
@@ -309,6 +310,10 @@ margin_bottom = 116.0
 
 [node name="Menu Buttons" parent="." instance=ExtResource( 25 )]
 visible = false
+
+[node name="CompletedSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 28 )
+volume_db = 4.0
 
 [connection signal="bars_finished" from="LoadingBars" to="." method="_on_LoadingBars_bars_finished"]
 [connection signal="timeout" from="LoadingBars/Timer" to="LoadingBars" method="_on_Timer_timeout"]

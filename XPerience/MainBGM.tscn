@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://SoundEffects/Monplaisir - Soundtrack ♫ NO COPYRIGHT 8-bit Music.wav" type="AudioStream" id=1]
+[ext_resource path="res://SoundEffects/bgm 2.wav" type="AudioStream" id=1]
+[ext_resource path="res://MainBGM.gd" type="Script" id=2]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
 stream = ExtResource( 1 )
-volume_db = 3.0
+volume_db = 2.0
 autoplay = true
 bus = "Music"
+script = ExtResource( 2 )
+
+[connection signal="finished" from="." to="." method="_on_AudioStreamPlayer_finished"]

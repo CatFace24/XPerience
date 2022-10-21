@@ -4,5 +4,5 @@ signal bars_complete
 
 
 func _on_LoadingBars_bars_finished():
-	print("Simulation Finished!!")
+	$CompletedSound.play()
 	emit_signal("bars_complete")

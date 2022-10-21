@@ -16,6 +16,9 @@ var transition = false
 var stage_five = false
 ##Variable to store dialog_index to display certain diagrams for explanation through _process
 var pop_up_index
+##variable to change bgm
+var main_bgm
+var normal_game_bgm = preload("res://SoundEffects/Monplaisir.wav")
 
 onready var pop_up_window = get_node("PopUpWindow")
 onready var dialog_boxes = get_node("DialogBoxes")
@@ -24,7 +27,6 @@ export(String, FILE, "*.json") var dialogue_file_path_one
 export(String, FILE, "*.json") var dialogue_file_path_two
 
 func _ready():
-	
 	$TransitionStageScene.set_process_input(false)
 	$TransitionStageScene.hide()
 	$SimulationScene.hide()
@@ -32,6 +34,10 @@ func _ready():
 	$MeetingRoom.normal_meeting_room()
 	dialog_boxes.hide()
 	pop_up_window.call_pop_up("STAGE 4 - PROTOTYPE", pop_up_dialog)
+	main_bgm = $"/root/MainBGM" 
+	main_bgm.stream = normal_game_bgm
+	main_bgm.volume_db = 3
+	main_bgm.play()
 
 
 ##method to read json file
