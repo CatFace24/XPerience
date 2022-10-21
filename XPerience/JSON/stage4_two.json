@@ -1,0 +1,16 @@
+{
+    "0": {"character": "UX", "content": "Here's the prototype!", "next": "1"},
+    "1": {"character": "Product Owner", "content": "Great! This really helps visualize our ideas.", "next": "2"},
+    "2": {"character": "Dev", "content": "I agree! Can't wait to start developing it.", "next": "3"},
+    "3": {"character": "UX", "content": "Wait! Before that, we need to test our ideas!", "next": "4"},
+    "4": {"character": "Dev", "content": "With our prototype?", "next": "5"},
+    "5": {"character": "UX", "content": "Yes! Remember the user problems we defined in the first two stages? We need to make sure our solution tackles those problems efficiently.", "next": "6"},
+    "6": {"character": "UX", "content": "Without testing, we run the risk of developing a product that does not help the user.", "next": "7"},
+    "7": {"character": "UX", "content": "This would not only frustrate users, but also waste precious time and effort spent on major re-works!", "next": "8"},
+    "8": {"character": "Dev", "content": "That makes sense...major re-works are always very time-consuming.", "next": "9"},
+    "9": {"character": "Product Owner", "content": "How can we mitigate that then?", "next": "10"},
+    "10": {"character": "UX", "content": "We can perform something called usability testing!"}
+    
+}
+    
+    

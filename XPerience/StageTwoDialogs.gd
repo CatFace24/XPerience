@@ -29,8 +29,8 @@ func _ready():
 	$WireGame.set_process_input(false)
 	$WireGame.hide()
 	$MeetingRoom.normal_meeting_room()
-	$MeetingRoom/ColorRect.hide()
-	$FadeIn.hide()
+	$TextureButton.hide()
+	$TextureButton.set_process_input(false)
 	dialog_boxes.hide()
 	pop_up_window.call_pop_up("STAGE 2 - DEFINE", pop_up_dialog)
 
@@ -64,18 +64,14 @@ func _on_PopUpWindow_pop_up_window_complete():
 		pop_up_window.hide()
 		$WireGame.show()
 		$WireGame.set_process_input(true)
-		#$FadeIn.show()
-		#$FadeIn.fade_in()
-		
+
 	if persona == true: 
 		pop_up_window.hide()
+		$TextureButton.show()
+		$TextureButton.set_process_input(true)
 		$WireGame.persona_completed()
 		$TextureButton.show()
 
-
-func _on_FadeIn_fade_finished():
-	pass
-	
 	
 func _on_DialogBoxes_button_pressed():
 	dialog_index = dialog_boxes.get_dialog_index()
@@ -112,6 +108,7 @@ func _on_WireGame_all_connected():
 	
 	
 func _on_TextureButton_pressed():
+	$TextureButton/AudioStreamPlayer.play()
 	$TransitionStageScene.set_process_input(true)
 	$TransitionStageScene.show()
 	$TransitionStageScene.set_content("STAGE 3", "Ideate", 3)

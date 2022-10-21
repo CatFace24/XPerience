@@ -1,0 +1,159 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Font/Windows Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://MeetingRoom.tscn" type="PackedScene" id=2]
+[ext_resource path="res://EndCredits.gd" type="Script" id=3]
+[ext_resource path="res://PO_Idle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://HappyChicken_Idle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://FadeInBlack/FadeIn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Buttons/Quit button normal.png" type="Texture" id=7]
+[ext_resource path="res://UI/Buttons/Quit button pressed.png" type="Texture" id=8]
+[ext_resource path="res://SoundEffects/ButtonClickSoundEffect 2.wav" type="AudioStream" id=9]
+
+[sub_resource type="Animation" id=5]
+resource_name = "BlackBgFadeIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "MeetingFadeIn"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "EndCredits"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 537, 741 ), Vector2( 537, -250 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "CreditsButton"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 530, 1050 ), Vector2( 530, 345 ) ]
+}
+
+[node name="EndCredits" type="Node2D"]
+script = ExtResource( 3 )
+scene_to_load = "res://TitleScreen.tscn"
+
+[node name="Background" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+anims/BlackBgFadeIn = SubResource( 5 )
+
+[node name="MeetingRoom" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="HappyChicken_Idle" parent="MeetingRoom" instance=ExtResource( 5 )]
+position = Vector2( 1053, 405 )
+scale = Vector2( 3, 3 )
+
+[node name="PO_Idle" parent="MeetingRoom" instance=ExtResource( 4 )]
+position = Vector2( 224, 420 )
+scale = Vector2( 3, 3 )
+
+[node name="FadeIn" parent="MeetingRoom/PO_Idle" instance=ExtResource( 6 )]
+margin_left = -4.33334
+margin_top = -70.0
+margin_right = -4.33334
+margin_bottom = -70.0
+
+[node name="FadeIn2" parent="MeetingRoom/PO_Idle" instance=ExtResource( 6 )]
+margin_left = -11.3333
+margin_top = -57.6667
+margin_right = -11.3333
+margin_bottom = -57.6667
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="MeetingRoom"]
+anims/MeetingFadeIn = SubResource( 8 )
+
+[node name="Credits" type="Label" parent="."]
+margin_left = 537.0
+margin_top = 741.0
+margin_right = 752.0
+margin_bottom = 990.0
+custom_fonts/font = SubResource( 6 )
+text = "a very long text of
+credits
+credits
+credits
+credits
+credits"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Credits"]
+anims/EndCredits = SubResource( 7 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 530.0
+margin_top = 1050.0
+margin_right = 785.0
+margin_bottom = 1128.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureButton"]
+anims/CreditsButton = SubResource( 9 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureButton"]
+stream = ExtResource( 9 )
+volume_db = 5.0
+
+[node name="FadeIn" parent="." instance=ExtResource( 6 )]
+
+[connection signal="animation_finished" from="Background/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="MeetingRoom/AnimationPlayer2" to="." method="_on_AnimationPlayer2_animation_finished"]
+[connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

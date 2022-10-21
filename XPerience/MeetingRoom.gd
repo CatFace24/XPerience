@@ -6,6 +6,7 @@ func _ready():
 
 
 func normal_meeting_room():
+	$ColorRect.hide()
 	$NotRetro.show()
 	$Retro.hide()
 	$AnimationPlayer.play("NotRetroMeetingRoom")

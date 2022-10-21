@@ -95,7 +95,7 @@ func _on_DialogBoxes_dialog_completed():
 	
 	pop_up_window.show()
 	pop_up_window.call_pop_up("STAGE 1 - EMPATHIZE", pop_up_dialog)
-	##start simulation scene
+	##start simulation scenex
 	simulation = true
 
 func _on_SimulationScene_bars_complete():
@@ -105,6 +105,6 @@ func _on_SimulationScene_bars_complete():
 		"The user interview is complete! Congrats, your team now has gained insights to the behaviour of the chicken construction workers. Time to continue to the next stage!"
 	]
 
-	##get back pop up window??
+	##get back pop up window
 	pop_up_window.show()
 	pop_up_window.call_pop_up("STAGE 1 - EMPATHIZE", pop_up_dialog)

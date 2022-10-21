@@ -14,6 +14,10 @@ config/name="XPerience"
 run/main_scene="res://TitleScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+MainBGM="*res://MainBGM.tscn"
+
 [display]
 
 window/size/width=1280

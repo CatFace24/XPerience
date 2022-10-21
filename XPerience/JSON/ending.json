@@ -1,0 +1,13 @@
+{
+    "0": {"character": "Product Owner", "content": "Great job team! Without your efforts this could not have been possible.", "next": "1"},
+    "1": {"character": "Product Owner", "content": "Look at the chickens, they're happy with the new feature!", "next": "2"},
+    "2": {"character": "Product Owner", "content": "Seeing it in a flow makes it so much clearer on how being user centric really contributes to the project, from the beginning to the end.", "next": "3"},
+    "3": {"character": "UX", "content": "Yeah! Let's summarize it:", "next": "4"},
+    "4": {"character": "UX", "content": "In the first stage, we empathized and listened to users about their experiences.", "next": "5"},
+    "5": {"character": "UX", "content": "Then we defined their problems and created a persona in stage two!", "next": "6"},
+    "6": {"character": "UX", "content": "From our defined problems, we then brainstormed a solution with our persona and users in mind.", "next": "7"},
+    "7": {"character": "UX", "content": "And to visualize our ideas, we made prototypes to better understand it.", "next": "8"},
+    "8": {"character": "UX", "content": "We then tested our prototypes with users to see if it really helps them before developing it!", "next": "9"},
+    "9": {"character": "UX", "content": "And after getting the green light, we can fully invest into developing the final product!", "next": "10"},
+    "10": {"character": "Manager", "content": "The feature launch is a success! Amazing efforts team, I hope we can continue this good work in future sprints as well."}
+}

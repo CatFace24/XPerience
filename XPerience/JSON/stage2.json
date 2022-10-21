@@ -1,6 +1,6 @@
 {
 
-    "0": {"character": "Product Owner", "content": "With the data at hand, we can move forward and define the user's pain points? How can we go about it?", "next": "1"},
+    "0": {"character": "Product Owner", "content": "With the data at hand, we can move forward and define the user's pain points! How can we go about it?", "next": "1"},
     "1": {"character": "UX", "content": "We can create a user persona together! That way, everyone will have the same idea of who the users are.", "next": "2"},
     "2": {"character": "Product Owner", "content": "Great, sounds like a plan!", "next": "3"},
     "3": {"character": "UX", "content": "Let's get started then!", "next": "4"},

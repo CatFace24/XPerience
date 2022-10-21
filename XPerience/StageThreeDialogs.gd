@@ -71,7 +71,7 @@ func _on_DialogBoxes_dialog_completed():
 	##transition to scene 4
 	$TransitionStageScene.set_process_input(true)
 	$TransitionStageScene.show()
-	$TransitionStageScene.set_content("STAGE 4", "Prototype", 5)
+	$TransitionStageScene.set_content("STAGE 4", "Prototype", 4)
 
 
 ##when wiregame finishes for the second time

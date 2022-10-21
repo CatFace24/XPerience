@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://UI/Buttons/Concrete start button normal.png" type="Texture" id=1]
-[ext_resource path="res://UI/Buttons/Concrete start button pressed.png" type="Texture" id=2]
+[ext_resource path="res://UI/Buttons/Start button normal.png" type="Texture" id=1]
+[ext_resource path="res://UI/Buttons/Start button pressed.png" type="Texture" id=2]
 [ext_resource path="res://UI/XPerience Logo.png" type="Texture" id=3]
+[ext_resource path="res://SoundEffects/ButtonClickSoundEffect 2.wav" type="AudioStream" id=4]
 [ext_resource path="res://Font/quaver.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://MeetingRoom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://FadeInBlack/FadeIn.tscn" type="PackedScene" id=7]
@@ -57,27 +58,30 @@ Gamification of User Centricity
 valign = 2
 
 [node name="CenterRow" type="HBoxContainer" parent="."]
-margin_left = 454.0
+margin_left = 520.0
 margin_top = 128.0
-margin_right = 810.0
 margin_bottom = 683.0
 size_flags_vertical = 3
 
 [node name="Button" type="VBoxContainer" parent="CenterRow"]
-margin_right = 356.0
+margin_right = 254.0
 margin_bottom = 555.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="CenterRow/Button"]
-margin_top = 213.0
-margin_right = 356.0
-margin_bottom = 341.0
+margin_top = 239.0
+margin_right = 254.0
+margin_bottom = 315.0
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 2 )
 script = ExtResource( 8 )
 scene_to_load = "res://LoadingScreen.tscn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CenterRow/Button/TextureButton"]
+stream = ExtResource( 4 )
+volume_db = 5.0
 
 [node name="FadeIn" parent="." instance=ExtResource( 7 )]
 visible = false

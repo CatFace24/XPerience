@@ -64,7 +64,7 @@ func _on_PopUpWindow_pop_up_window_complete():
 	elif interview == true and transition == true:
 		$TransitionStageScene.set_process_input(true)
 		$TransitionStageScene.show()
-		$TransitionStageScene.set_content("STAGE 6", "Implement", 2) ##to be changed!
+		$TransitionStageScene.set_content("STAGE 6", "Implement", 6) ##to be changed!
 		
 	else:
 		pop_up_window.hide()
@@ -87,7 +87,7 @@ func _on_DialogBoxes_dialog_completed():
 	dialog_boxes.hide()
 	
 	pop_up_dialog = [
-		"The usability interview will start now!"
+		"The usability testing will start now!"
 	]
 	
 	pop_up_window.show()
