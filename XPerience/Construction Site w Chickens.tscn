@@ -1,0 +1,226 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Isometric Assets/SpriteSheet/SpriteSheet_HAPPY Chickens_Idle.png" type="Texture" id=1]
+[ext_resource path="res://UI/Emotes/Happy emote.png" type="Texture" id=2]
+[ext_resource path="res://UI/Emotes/Annoyed emote.png" type="Texture" id=3]
+[ext_resource path="res://UI/Emotes/Question emote.png" type="Texture" id=4]
+[ext_resource path="res://Isometric Assets/Construction site.png" type="Texture" id=5]
+[ext_resource path="res://Isometric Assets/SpriteSheet/SpriteSheet_Chickens_Idle.png" type="Texture" id=6]
+[ext_resource path="res://UI/Emotes/Derp emote.png" type="Texture" id=7]
+[ext_resource path="res://HappyChicken_Idle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Isometric Assets/SpriteSheet/Character shadow.png" type="Texture" id=9]
+
+[sub_resource type="Animation" id=5]
+resource_name = "MiddleChickenIdle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "LeftChickenIdle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.4, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "RightChickenIdle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Idle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Idle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.4, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[node name="Construction Site" type="Node2D"]
+
+[node name="ConstructionSite" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+texture = ExtResource( 5 )
+
+[node name="Shadows" type="Node2D" parent="."]
+position = Vector2( 640, 360 )
+
+[node name="CharacterShadow" type="Sprite" parent="Shadows"]
+position = Vector2( -230, -28 )
+scale = Vector2( 3.5, 3.5 )
+texture = ExtResource( 9 )
+
+[node name="CharacterShadow2" type="Sprite" parent="Shadows"]
+position = Vector2( -101, -64 )
+scale = Vector2( 3.5, 3.5 )
+texture = ExtResource( 9 )
+
+[node name="CharacterShadow3" type="Sprite" parent="Shadows"]
+position = Vector2( 291, -17.9999 )
+scale = Vector2( 3.5, 3.5 )
+texture = ExtResource( 9 )
+
+[node name="Unhappy" type="Node2D" parent="."]
+position = Vector2( 311, 245 )
+scale = Vector2( 3, 3 )
+
+[node name="Middle Chicken" type="KinematicBody2D" parent="Unhappy"]
+position = Vector2( -104, -85.6667 )
+scale = Vector2( 0.333333, 0.333333 )
+
+[node name="Middle Chicken" type="Sprite" parent="Unhappy/Middle Chicken"]
+position = Vector2( 521, 325 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 6 )
+hframes = 4
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Unhappy/Middle Chicken/Middle Chicken"]
+autoplay = "MiddleChickenIdle"
+anims/MiddleChickenIdle = SubResource( 5 )
+
+[node name="Left Chicken" type="KinematicBody2D" parent="Unhappy"]
+position = Vector2( -103.667, -81.6667 )
+scale = Vector2( 0.333333, 0.333333 )
+
+[node name="Left Chicken" type="Sprite" parent="Unhappy/Left Chicken"]
+position = Vector2( 387, 345 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 6 )
+hframes = 4
+vframes = 3
+frame = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Unhappy/Left Chicken/Left Chicken"]
+autoplay = "LeftChickenIdle"
+anims/LeftChickenIdle = SubResource( 6 )
+
+[node name="Right Chicken" type="KinematicBody2D" parent="Unhappy"]
+position = Vector2( -102, -82 )
+scale = Vector2( 0.333333, 0.333333 )
+
+[node name="Right Chicken2" type="Sprite" parent="Unhappy/Right Chicken"]
+position = Vector2( 913, 359 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 6 )
+hframes = 4
+vframes = 3
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Unhappy/Right Chicken/Right Chicken2"]
+autoplay = "RightChickenIdle"
+anims/RightChickenIdle = SubResource( 4 )
+
+[node name="DerpEmote" type="Sprite" parent="Unhappy"]
+position = Vector2( 29.3333, -27.6667 )
+texture = ExtResource( 7 )
+
+[node name="AnnoyedEmote" type="Sprite" parent="Unhappy"]
+position = Vector2( 205.667, -22 )
+texture = ExtResource( 3 )
+
+[node name="QuestionEmote" type="Sprite" parent="Unhappy"]
+texture = ExtResource( 4 )
+
+[node name="Happy" type="Node2D" parent="."]
+visible = false
+position = Vector2( 399, 162 )
+scale = Vector2( 3, 3 )
+
+[node name="HappyEmote2" type="Sprite" parent="Happy"]
+position = Vector2( -2.33331, 3.66667 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="HappyEmote" type="Sprite" parent="Happy"]
+position = Vector2( 42.6667, -4.33333 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="HappyEmote3" type="Sprite" parent="Happy"]
+position = Vector2( 176.333, 7.66667 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="Right Chicken" parent="Happy" instance=ExtResource( 8 )]
+
+[node name="Middle Chicken" type="Sprite" parent="Happy"]
+position = Vector2( 40.3333, 49.3333 )
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 3
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Happy/Middle Chicken"]
+autoplay = "Idle"
+anims/Idle = SubResource( 8 )
+
+[node name="Left Chicken" type="Sprite" parent="Happy"]
+position = Vector2( -2, 62 )
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 3
+frame = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Happy/Left Chicken"]
+autoplay = "Idle"
+anims/Idle = SubResource( 9 )

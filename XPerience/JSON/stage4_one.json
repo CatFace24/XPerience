@@ -1,0 +1,52 @@
+{
+    "0": {"character": "Product Owner", "content": "I think our idea is pretty solid, shall we jump straight to a prototype of our solution?", "next": "1"},
+    "1": {"character": "UX", "content": "I wouldn't say that is a good idea. Some sketches and wireframes should be drafted to visualize the concept of our solution!", "next": "2"},
+    "2": {"character": "Product Owner", "content": "Oh? Sketches? Aren't they all more or less the same?", "next": "3"},
+    "3": {"character": "UX", "content": "Haha, not really! Come, let me explain.", "next": "4"},    
+    "4": {"character": "UX", "content": "It's easy to confuse sketches, wireframes, and prototypes. But all of it serves a different purpose!", "next": "5"},
+    "5": {"character": "UX", "content": "Sketches are rapid, freehand drawings that proves a concept and visualize the initial ideas we have.",
+    "options": [
+    {"text": "Ohh I see, I always forget this step!", "next": "6"},
+    {"text": "So sketches aren't the actual design in the end?", "next": "6"}
+    ]},
+    "6": {"character": "UX", "content": "Exactly! This step is crucial to set up a good foundation. We are visual learners after all, so it helps to have a visual conceptualization!", "next": "7"},
+    "7": {"character": "Product Owner", "content": "Cool! What about wireframes?", "next": "8"},
+    "8": {"character": "UX", "content": "Wireframes display the basic structure and layout of the website or mobile app!", "next": "9"},
+    "9": {"character": "UX", "content": "It is still not super detailed and only contain important elements of the UI.", "next": "10"},
+    "10": {"character": "Product Owner", "content": "I see, how is it different from sketches then?", "next": "11"},
+    "11": {"character": "UX", "content": "Wireframes show more structure in the page and is useful in showing how different screens relate together! A little more refined than sketches if I may say.", "next": "12"},
+    "12": {"character": "Product Owner", "content": "Interesting! I learn something new today. I'm guessing prototypes are more refined than wireframes too?", "next": "13"},
+    "13": {"character": "UX", "content": "Technically yes! Prototypes are needed to evaluate visual designs, consistency, and user journeys! It can be presented to stakeholders as well for testing.", "next": "14"},
+    "14": {"character": "Product Owner", "content": "I see, would it be something like a simulation of the actual end-product?", "next": "15"},
+    "15": {"character": "UX", "content": "Yep! Prototypes are not ambiguous in nature. They can be interacted with by clicking as well!", "next": "16"},
+    "16": {"character": "UX", "content": "Are you clear on the differences between the three artefacts?",
+    "options": [
+    {"text": "I'm still a little blur on sketches...", "next": "17"},
+    {"text": "I'm still a little confused on wireframes...", "next": " 19"},
+    {"text": "Can you repeat on prototypes?", "next": "21"},
+    {"text": "All clear!", "next": "23"}
+    ]},
+    
+    "17": {"character": "UX", "content": "Sketches are rapid, freehand drawings that proves a concept and visualize the initial ideas we have.", "next": "18"},
+    "18": {"character": "UX", "content": "This aids in visual conceptualization, as we may have many ideas initially.", "next": "16"},
+    "19": {"character": "UX", "content": "Wireframes show the basic structure and layout of the page, and shows how different screens relate to each other!", "next": "20"},
+    "20": {"character": "UX", "content": " It should not be too detailed and only contain essential UI elements.", "next": "16"},
+    "21": {"character": "UX", "content": "Prototypes are more refined versions of wireframes! They are great in displaying the visual designs and for evaluating user journeys.", "next": "22"},
+    "22": {"character": "UX", "content": "These can be shown to stakeholders as it easy for them to understand and test your ideas as they can interact with it! It is a simulation of the final product.", "next": "16"},
+    "23": {"character": "UX", "content": "FYI, there are also different types of prototypes! Could you name the different types?",
+    "options": [
+    {"text": "Yeah! High and Low Overview Prototype", "next": "24"},
+    {"text": "Yep! High and Low Fidelity Prototype", "next": "25"},
+    {"text": "Definitely Simple and Complex Prototype!", "next": "24"}
+    ]},
+    "24": {"character": "UX", "content": "Not quite, they are actually called High and Low Fidelity Prototypes!", "next": "26"},
+    "25": {"character": "UX", "content": "Spot on!", "next": "26"},
+    "26": {"character": "UX", "content": "Low Fidelity(lo-fi) Prototypes are much quicker to make! They provide a simple outline of the flow to check how useful the functionalities are.", "next": "27"},
+    "27": {"character": "Product Owner", "content": "Won't this be similar to a wireframe then?", "next": "28"},
+    "28": {"character": "UX", "content": "Nope! Lo-fi prototypes still represent what the final product may look like and it can be interacted with, unlike wireframes.", "next": "29"},
+    "29": {"character": "UX", "content": "High Fidelity (hi-fi) Prototypes come after lo-fi prototypes with much better aesthetics and functions. It gives a clearer picture to what the final product will look like!", "next": "30"},
+    "30": {"character": "UX", "content": "It is, however, much costlier to create and takes a longer time. Thus, this is the final design element before development!", "next": "31"},
+    "31": {"character": "Product Owner", "content": "Wow, thanks for the info! Certainly a lot to take in.", "next": "32"},
+    "32": {"character": "Product Owner", "content": "Let's carry on with our tasks for this stage!"}
+    
+    }

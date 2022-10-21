@@ -1,0 +1,7 @@
+{
+    "0": {"character": "Dev", "content": "We've completed the development!", "next": "1"},
+    "1": {"character": "QA", "content": "Looks good as well, it satisfies our feature requirements!", "next": "2"},
+    "2": {"character": "UX", "content": "It matches the prototype as well, nice!", "next": "3"},
+    "3": {"character": "Product Owner", "content": "Amazing, let's deploy the feature!"}
+    
+}

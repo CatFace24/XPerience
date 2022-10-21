@@ -59,6 +59,7 @@ func _process(delta):
 	
 	
 func back_explanation():
+	$AudioStreamPlayer.play()
 	dialog_index -= 2
 	##Accessing the dialog of the particular index
 	if dialog_index < 1 or dialog_index == 0:
@@ -90,6 +91,9 @@ func load_title():
 	
 
 func load_dialog():
+	##play sound effect
+	$AudioStreamPlayer.play()
+	
 	##if dialog index is less than dialog array size, means there is still text
 	if dialog_index < dialog.size():
 		##setting visibility of backbutton

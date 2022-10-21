@@ -46,3 +46,12 @@ func is_all_connected():
 		$Red.set_process_input(false)
 		$Teal.set_process_input(false)
 		$Orange.set_process_input(false)
+		
+
+func persona_completed():
+	$EmptyPersona.hide()
+	$EmptyPersonaContent.hide()
+	$Caption.hide()
+	$CompletedPersona.show()
+	$CompletedPersonaContent.show()
+	$CompletedCaption.show()

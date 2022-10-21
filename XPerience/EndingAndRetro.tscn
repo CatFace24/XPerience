@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://EndingAndRetroDialog.gd" type="Script" id=1]
+[ext_resource path="res://Construction Site w Chickens.tscn" type="PackedScene" id=2]
+[ext_resource path="res://DialogBoxes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PopUpWindow2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Menu Buttons.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UXProcesses.tscn" type="PackedScene" id=6]
+[ext_resource path="res://EndCredits.tscn" type="PackedScene" id=7]
+
+[node name="EndingAndRetro" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="EndingAndRetroDialog" type="Control" parent="."]
+margin_left = 210.0
+margin_top = 24.0
+margin_right = 1146.0
+margin_bottom = 680.0
+script = ExtResource( 1 )
+dialogue_file_path = "res://JSON/ending.json"
+
+[node name="ConstructionSite" parent="EndingAndRetroDialog" instance=ExtResource( 2 )]
+position = Vector2( -210, -24 )
+
+[node name="PopUpWindow" parent="EndingAndRetroDialog" instance=ExtResource( 4 )]
+visible = false
+margin_left = 428.0
+margin_top = 278.0
+margin_right = -468.0
+margin_bottom = -338.0
+
+[node name="UXProcesses" parent="EndingAndRetroDialog" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( -210, -24 )
+
+[node name="DialogBoxes" parent="EndingAndRetroDialog" instance=ExtResource( 3 )]
+anchor_left = 0.483
+anchor_top = 1.055
+anchor_right = 0.483
+anchor_bottom = 1.061
+margin_left = -320.088
+margin_top = -247.08
+margin_right = 319.912
+margin_bottom = 37.9839
+
+[node name="EndCredits" parent="EndingAndRetroDialog" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( -210, -24 )
+
+[node name="Menu Buttons" parent="." instance=ExtResource( 5 )]
+
+[connection signal="pop_up_window_complete" from="EndingAndRetroDialog/PopUpWindow" to="EndingAndRetroDialog" method="_on_PopUpWindow_pop_up_window_complete"]
+[connection signal="button_pressed" from="EndingAndRetroDialog/DialogBoxes" to="EndingAndRetroDialog" method="_on_DialogBoxes_button_pressed"]
+[connection signal="dialog_completed" from="EndingAndRetroDialog/DialogBoxes" to="EndingAndRetroDialog" method="_on_DialogBoxes_dialog_completed"]

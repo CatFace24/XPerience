@@ -36,8 +36,17 @@ func change_to_next_scene():
 	if stage_index == 3:
 		get_tree().change_scene("res://StageThreeIdeate.tscn")
 	
+	if stage_index == 4:
+		get_tree().change_scene("res://StageFourPrototype.tscn")
+		
 	if stage_index == 5:
 		get_tree().change_scene("res://StageFiveTesting.tscn")
+		
+	if stage_index == 6:
+		get_tree().change_scene("res://StageSixImplement.tscn")
+	
+	if stage_index == 7:
+		get_tree().change_scene("res://EndingAndRetro.tscn")
 
 
 ##signal to show elements after bg animation finishes

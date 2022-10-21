@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://UI/Dialogue/Dialog Box.png" type="Texture" id=1]
 [ext_resource path="res://UI/Dialogue/Manager icon dialogue.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://DialogWindowAndIcon.gd" type="Script" id=9]
 [ext_resource path="res://UI/Dialogue/Next Dialog.png" type="Texture" id=10]
 [ext_resource path="res://CallDialogBoxes.gd" type="Script" id=11]
+[ext_resource path="res://SoundEffects/ButtonClickSoundEffect 2.wav" type="AudioStream" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -87,7 +88,7 @@ anchor_bottom = 1.0
 margin_left = 99.0
 margin_top = 119.0
 margin_right = -11.0
-margin_bottom = -44.0
+margin_bottom = -55.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
@@ -147,17 +148,26 @@ anims/NextDialog = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 
 [node name="PlayerChoices" type="Control" parent="DialogWindowAndIcon"]
+anchor_bottom = 1.0
 margin_left = 700.0
-margin_top = 45.0
+margin_top = -117.0
 margin_right = 936.0
-margin_bottom = 295.0
+rect_pivot_offset = Vector2( 235, 354 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DialogWindowAndIcon/PlayerChoices"]
-margin_left = -8.0
-margin_top = 24.0
-margin_right = 224.0
-margin_bottom = 258.0
+anchor_top = 0.928
+anchor_bottom = 0.928
+margin_left = -2.00002
+margin_top = -314.832
+margin_right = 231.0
+margin_bottom = 0.167999
+alignment = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogWindowAndIcon"]
+stream = ExtResource( 12 )
+volume_db = 3.0
 
 [connection signal="dialog_finished" from="DialogWindowAndIcon" to="." method="_on_DialogWindowAndIcon_dialog_finished"]
+[connection signal="option_clicked" from="DialogWindowAndIcon" to="." method="_on_DialogWindowAndIcon_option_clicked"]
 [connection signal="tween_completed" from="DialogWindowAndIcon/Tween" to="DialogWindowAndIcon" method="_on_Tween_tween_completed"]
 [connection signal="pressed" from="DialogWindowAndIcon/TextureButton" to="." method="_on_TextureButton_pressed"]

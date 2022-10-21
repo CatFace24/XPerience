@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Menu Buttons.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MeetingRoom.tscn" type="PackedScene" id=2]
+[ext_resource path="res://StageFourDialogs.gd" type="Script" id=3]
+[ext_resource path="res://FadeInBlack/FadeIn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://DialogBoxes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://PopUpWindow2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://TransitionStageScene.tscn" type="PackedScene" id=7]
+[ext_resource path="res://SimulationScene.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sketches, Wireframe, Prototype/Sketches.png" type="Texture" id=9]
+[ext_resource path="res://Sketches, Wireframe, Prototype/Prototype (interaction).png" type="Texture" id=10]
+[ext_resource path="res://Sketches, Wireframe, Prototype/Prototype (screens).png" type="Texture" id=11]
+[ext_resource path="res://Sketches, Wireframe, Prototype/Wireframe.png" type="Texture" id=12]
+[ext_resource path="res://StageFourPrototype.gd" type="Script" id=13]
+
+[node name="StageFourPrototype" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 13 )
+
+[node name="StageFourDialogs" type="Control" parent="."]
+anchor_left = 0.53
+anchor_top = 1.0
+anchor_right = 0.53
+anchor_bottom = 1.0
+margin_left = -468.4
+margin_top = -696.0
+margin_right = 467.6
+margin_bottom = -40.0
+script = ExtResource( 3 )
+dialogue_file_path_one = "res://JSON/stage4_one.json"
+dialogue_file_path_two = "res://JSON/stage4_two.json"
+
+[node name="MeetingRoom" parent="StageFourDialogs" instance=ExtResource( 2 )]
+position = Vector2( -210, -24 )
+
+[node name="FadeIn" parent="StageFourDialogs" instance=ExtResource( 4 )]
+margin_left = -210.0
+margin_top = -24.0
+margin_right = 134.0
+margin_bottom = 40.0
+
+[node name="SimulationScene" parent="StageFourDialogs" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( -210, -24 )
+
+[node name="PopUpWindow" parent="StageFourDialogs" instance=ExtResource( 6 )]
+anchor_left = 0.5
+anchor_top = 1.055
+anchor_right = 0.5
+anchor_bottom = 1.055
+margin_left = -40.0
+margin_top = -399.08
+margin_bottom = -359.08
+
+[node name="Sketches" type="Sprite" parent="StageFourDialogs"]
+visible = false
+position = Vector2( 430, 336 )
+texture = ExtResource( 9 )
+
+[node name="Wireframe" type="Sprite" parent="StageFourDialogs"]
+visible = false
+position = Vector2( 430, 336 )
+texture = ExtResource( 12 )
+
+[node name="Prototype(screens)" type="Sprite" parent="StageFourDialogs"]
+visible = false
+position = Vector2( 430, 336 )
+texture = ExtResource( 11 )
+
+[node name="Prototype(interaction)" type="Sprite" parent="StageFourDialogs"]
+visible = false
+position = Vector2( 430, 336 )
+texture = ExtResource( 10 )
+
+[node name="DialogBoxes" parent="StageFourDialogs" instance=ExtResource( 5 )]
+anchor_left = 0.5
+anchor_top = 1.062
+anchor_right = 0.5
+anchor_bottom = 1.062
+margin_left = -340.0
+margin_top = -255.672
+margin_right = 300.0
+margin_bottom = 33.328
+
+[node name="TransitionStageScene" parent="StageFourDialogs" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( -210, -24 )
+
+[node name="MenuButtons" parent="." instance=ExtResource( 1 )]
+
+[connection signal="fade_finished" from="StageFourDialogs/FadeIn" to="StageFourDialogs" method="_on_FadeIn_fade_finished"]
+[connection signal="bars_complete" from="StageFourDialogs/SimulationScene" to="StageFourDialogs" method="_on_SimulationScene_bars_complete"]
+[connection signal="dialog_index_fully_updated" from="StageFourDialogs/PopUpWindow" to="StageFourDialogs" method="_on_PopUpWindow_dialog_index_fully_updated"]
+[connection signal="pop_up_window_complete" from="StageFourDialogs/PopUpWindow" to="StageFourDialogs" method="_on_PopUpWindow_pop_up_window_complete"]
+[connection signal="button_pressed" from="StageFourDialogs/DialogBoxes" to="StageFourDialogs" method="_on_DialogBoxes_button_pressed"]
+[connection signal="dialog_completed" from="StageFourDialogs/DialogBoxes" to="StageFourDialogs" method="_on_DialogBoxes_dialog_completed"]
+[connection signal="option_pressed" from="StageFourDialogs/DialogBoxes" to="." method="_on_DialogBoxes_option_pressed"]
+[connection signal="option_pressed" from="StageFourDialogs/DialogBoxes" to="StageFourDialogs" method="_on_DialogBoxes_option_pressed"]

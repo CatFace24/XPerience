@@ -1,18 +1,18 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://TransitionStageScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://PopUpWindow2.tscn" type="PackedScene" id=2]
-[ext_resource path="res://FadeInBlack/FadeIn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SoundEffects/ButtonClickSoundEffect 2.wav" type="AudioStream" id=3]
 [ext_resource path="res://Menu Buttons.tscn" type="PackedScene" id=4]
 [ext_resource path="res://DialogBoxes.tscn" type="PackedScene" id=5]
 [ext_resource path="res://WireGame.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/Dialogue/Next Dialog.png" type="Texture" id=7]
 [ext_resource path="res://MeetingRoom.tscn" type="PackedScene" id=8]
 [ext_resource path="res://StageTwoDialogs.gd" type="Script" id=9]
+[ext_resource path="res://StageTwoDefine.gd" type="Script" id=10]
 
 [sub_resource type="Animation" id=1]
-resource_name = "PersonaEnd"
-length = 1.4
+resource_name = "Button"
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -21,15 +21,16 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ Vector2( 853, 622 ), Vector2( 860, 622 ) ]
+"values": [ Vector2( 823, 615 ), Vector2( 818, 615 ) ]
 }
 
 [node name="StageTwoDefine" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 10 )
 
 [node name="StageTwoDialogs" type="Control" parent="."]
 anchor_left = 0.5
@@ -56,44 +57,39 @@ margin_top = 445.0
 margin_right = -164.0
 margin_bottom = 78.0
 
-[node name="FadeIn" parent="StageTwoDialogs" instance=ExtResource( 3 )]
-visible = false
-margin_left = -210.0
-margin_top = -24.0
-margin_right = 134.0
-margin_bottom = 40.0
-
 [node name="PopUpWindow" parent="StageTwoDialogs" instance=ExtResource( 2 )]
 anchor_left = 0.5
 anchor_top = 1.041
 anchor_right = 0.5
 anchor_bottom = 1.041
 margin_left = -40.0
-margin_top = -405.0
-margin_bottom = -365.0
+margin_top = -404.896
+margin_bottom = -364.896
 
 [node name="TransitionStageScene" parent="StageTwoDialogs" instance=ExtResource( 1 )]
 visible = false
 position = Vector2( -210, -24 )
 
 [node name="TextureButton" type="TextureButton" parent="StageTwoDialogs"]
-visible = false
-margin_left = 860.0
-margin_top = 622.0
-margin_right = 908.0
-margin_bottom = 670.0
+margin_left = 815.0
+margin_top = 615.0
+margin_right = 863.0
+margin_bottom = 663.0
 texture_normal = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StageTwoDialogs/TextureButton"]
-autoplay = "PersonaEnd"
-anims/PersonaEnd = SubResource( 1 )
+autoplay = "Button"
+anims/Button = SubResource( 1 )
 
-[node name="Menu Buttons" parent="." instance=ExtResource( 4 )]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StageTwoDialogs/TextureButton"]
+stream = ExtResource( 3 )
+volume_db = 3.0
+
+[node name="MenuButtons" parent="." instance=ExtResource( 4 )]
 
 [connection signal="all_connected" from="StageTwoDialogs/WireGame" to="StageTwoDialogs" method="_on_WireGame_all_connected"]
 [connection signal="button_pressed" from="StageTwoDialogs/DialogBoxes" to="StageTwoDialogs" method="_on_DialogBoxes_button_pressed"]
 [connection signal="dialog_completed" from="StageTwoDialogs/DialogBoxes" to="StageTwoDialogs" method="_on_DialogBoxes_dialog_completed"]
-[connection signal="fade_finished" from="StageTwoDialogs/FadeIn" to="StageTwoDialogs" method="_on_FadeIn_fade_finished"]
 [connection signal="dialog_index_fully_updated" from="StageTwoDialogs/PopUpWindow" to="StageTwoDialogs" method="_on_PopUpWindow_dialog_index_fully_updated"]
 [connection signal="pop_up_window_complete" from="StageTwoDialogs/PopUpWindow" to="StageTwoDialogs" method="_on_PopUpWindow_pop_up_window_complete"]
 [connection signal="pressed" from="StageTwoDialogs/TextureButton" to="StageTwoDialogs" method="_on_TextureButton_pressed"]

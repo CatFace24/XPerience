@@ -15,6 +15,7 @@ onready var button = get_node(button_path)
 onready var player_option_box = $PlayerChoices/VBoxContainer
 
 signal dialog_finished
+signal option_clicked
 
 ##function to call text
 #func _ready():
@@ -81,12 +82,19 @@ func display_player_options():
 ##function for when a player option is pressed
 func _on_PlayerOptionButton_pressed(next):
 	dialog_index = next.to_int()
+	emit_signal("option_clicked")
 	load_dialog()
+	$AudioStreamPlayer.play()
 
 
 ##function to return index
 func get_dialog_index():
 	return dialog_index
+
+
+##function to reset dialog index
+func reset_dialog_index():
+	dialog_index = 0
 
 
 ##function for action
@@ -134,6 +142,7 @@ func load_dialog():
 			option = true
 		
 		print(dialog_index, " has next? ", dialog[str(dialog_index)].has("next"))
+
 		
 	else:
 		emit_signal("dialog_finished") ##not passed to parents
