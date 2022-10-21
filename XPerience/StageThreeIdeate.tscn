@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://StageThreeDialogs.gd" type="Script" id=1]
 [ext_resource path="res://BrainstormGame.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://TransitionStageScene.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Menu Buttons.tscn" type="PackedScene" id=7]
 [ext_resource path="res://StageThreeIdeate.gd" type="Script" id=8]
+[ext_resource path="res://SoundEffects/complete or win sound effect.wav" type="AudioStream" id=9]
 
 [node name="StageThreeIdeate" type="Control"]
 anchor_right = 1.0
@@ -44,6 +45,10 @@ margin_bottom = 26.08
 
 [node name="TransitionStageScene" parent="StageThreeDialogs" instance=ExtResource( 6 )]
 visible = false
+
+[node name="CompletedSound" type="AudioStreamPlayer" parent="StageThreeDialogs"]
+stream = ExtResource( 9 )
+volume_db = 4.0
 
 [node name="MenuButtons" parent="." instance=ExtResource( 7 )]
 

@@ -42,7 +42,7 @@ func load_json(file_path):
 
 ##when first round finished connecting
 func _on_BrainstormGame_all_connected():
-	
+
 	pop_up_dialog = [
 		"Your team is almost there, keep refining your idea!"
 	]
@@ -76,6 +76,7 @@ func _on_DialogBoxes_dialog_completed():
 
 ##when wiregame finishes for the second time
 func _on_BrainstormGameTwo_all_connected():
+	$CompletedSound.play()
 	$BrainstormGameTwo/Caption.hide()
 	
 	##start dialogue

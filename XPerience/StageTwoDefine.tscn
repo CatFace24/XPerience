@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://TransitionStageScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://PopUpWindow2.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://MeetingRoom.tscn" type="PackedScene" id=8]
 [ext_resource path="res://StageTwoDialogs.gd" type="Script" id=9]
 [ext_resource path="res://StageTwoDefine.gd" type="Script" id=10]
+[ext_resource path="res://SoundEffects/complete or win sound effect.wav" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Button"
@@ -84,6 +85,10 @@ anims/Button = SubResource( 1 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StageTwoDialogs/TextureButton"]
 stream = ExtResource( 3 )
 volume_db = 3.0
+
+[node name="CompletedSound" type="AudioStreamPlayer" parent="StageTwoDialogs"]
+stream = ExtResource( 11 )
+volume_db = 4.0
 
 [node name="MenuButtons" parent="." instance=ExtResource( 4 )]
 
