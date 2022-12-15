@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Font/Windows Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://MeetingRoom.tscn" type="PackedScene" id=2]
@@ -77,6 +77,26 @@ tracks/0/keys = {
 "values": [ Vector2( 530, 1050 ), Vector2( 530, 345 ) ]
 }
 
+[sub_resource type="DynamicFont" id=10]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "ThanksForPlaying"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 530, 999 ), Vector2( 530, 283 ) ]
+}
+
 [node name="EndCredits" type="Node2D"]
 script = ExtResource( 3 )
 scene_to_load = "res://TitleScreen.tscn"
@@ -153,6 +173,17 @@ stream = ExtResource( 9 )
 volume_db = 5.0
 
 [node name="FadeIn" parent="." instance=ExtResource( 6 )]
+
+[node name="ThanksForPlaying" type="Label" parent="."]
+margin_left = 530.0
+margin_top = 999.0
+margin_right = 787.0
+margin_bottom = 1038.0
+custom_fonts/font = SubResource( 10 )
+text = "Thanks for Playing! :D"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ThanksForPlaying"]
+anims/ThanksForPlaying = SubResource( 11 )
 
 [connection signal="animation_finished" from="Background/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="MeetingRoom/AnimationPlayer2" to="." method="_on_AnimationPlayer2_animation_finished"]

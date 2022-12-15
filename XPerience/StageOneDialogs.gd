@@ -77,6 +77,7 @@ func _on_PopUpWindow_pop_up_window_complete():
 
 func _on_FadeIn_fade_finished():
 	$SimulationScene.show()
+	$SimulationScene.play_ux_interview()
 	$SimulationScene/LoadingBars.start_simulation()
 
 

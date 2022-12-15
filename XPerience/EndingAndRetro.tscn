@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://EndingAndRetroDialog.gd" type="Script" id=1]
 [ext_resource path="res://Construction Site w Chickens.tscn" type="PackedScene" id=2]
@@ -7,10 +7,12 @@
 [ext_resource path="res://Menu Buttons.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UXProcesses.tscn" type="PackedScene" id=6]
 [ext_resource path="res://EndCredits.tscn" type="PackedScene" id=7]
+[ext_resource path="res://EndingAndRetro.gd" type="Script" id=8]
 
 [node name="EndingAndRetro" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 8 )
 
 [node name="EndingAndRetroDialog" type="Control" parent="."]
 margin_left = 210.0
@@ -48,8 +50,9 @@ margin_bottom = 37.9839
 visible = false
 position = Vector2( -210, -24 )
 
-[node name="Menu Buttons" parent="." instance=ExtResource( 5 )]
+[node name="MenuButtons" parent="." instance=ExtResource( 5 )]
 
+[connection signal="hide_stage" from="EndingAndRetroDialog" to="." method="_on_EndingAndRetroDialog_hide_stage"]
 [connection signal="pop_up_window_complete" from="EndingAndRetroDialog/PopUpWindow" to="EndingAndRetroDialog" method="_on_PopUpWindow_pop_up_window_complete"]
 [connection signal="button_pressed" from="EndingAndRetroDialog/DialogBoxes" to="EndingAndRetroDialog" method="_on_DialogBoxes_button_pressed"]
 [connection signal="dialog_completed" from="EndingAndRetroDialog/DialogBoxes" to="EndingAndRetroDialog" method="_on_DialogBoxes_dialog_completed"]

@@ -2,7 +2,7 @@ extends Node2D
 
 ##variable to see if its dragging
 var dragging = false
-var click_radius = 30 ##size of sprite
+var click_radius = 64 ##size of sprite
 var last_mouse_point
 ##var to see if its done
 var line_connected = false
@@ -38,9 +38,9 @@ func _process(delta):
 				pass
 			
 			else:
-				if last_mouse_point.x > $LED.position.x - 10 and last_mouse_point.x < $LED.position.x + 10:
+				if last_mouse_point.x > $LED.position.x - 64 and last_mouse_point.x < $LED.position.x + 64:
 					
-					if last_mouse_point.y > $LED.position.y - 10 and last_mouse_point.y < $LED.position.y + 10:
+					if last_mouse_point.y > $LED.position.y - 64 and last_mouse_point.y < $LED.position.y + 64:
 
 						##emit some signal here, but need each 'connector' to have their own script
 						emit_signal("teal_connected")

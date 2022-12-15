@@ -72,6 +72,7 @@ visible = false
 position = Vector2( -210, -24 )
 
 [node name="TextureButton" type="TextureButton" parent="StageTwoDialogs"]
+visible = false
 margin_left = 815.0
 margin_top = 615.0
 margin_right = 863.0

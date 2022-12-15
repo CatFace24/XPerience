@@ -3,7 +3,7 @@ extends Control
 ##for popup window 
 var pop_up_dialog = [
 	"This is stage 4, prototype!",
-	"Everyone has an idea on what prototypes are: they are tangible forms of our ideas! This makes it very useful for testing as well. \nTalk to the UX designer to find out more!" 
+	"Everyone has an idea on what prototypes are: they are tangible forms of our ideas! This makes it very useful for testing as well. \n\nTalk to the UX designer to find out more!" 
 ]
 ##This variable needs to recognize how many dialogs there are
 var dialogs

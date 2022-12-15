@@ -46,3 +46,4 @@ func _on_AnimationPlayer2_animation_finished(anim_name):
 	$TextureButton.show()
 	$Credits/AnimationPlayer.play("EndCredits")
 	$TextureButton/AnimationPlayer.play("CreditsButton")
+	$ThanksForPlaying/AnimationPlayer.play("ThanksForPlaying")
