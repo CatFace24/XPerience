@@ -2,7 +2,7 @@ extends Control
 
 ##for popup window 
 var pop_up_dialog = [
-	"You and your team are almost there, keep it up! \nBecause of all the UX processes, interviews, prototypes and testings before, the team can be rest assured that they can fully invest into developing this product!",
+	"You and your team are almost there, keep it up! \n\nBecause of all the UX processes, interviews, prototypes and testings before, the team can be rest assured that they can fully invest into developing this product!",
 	"This saves time and resources in development as the need for major reworks are greatly reduced.",
 	"Do note that this is a simplified version of a sprint! When you get back to real life, you may face more complex challenges and problems that results in different outcomes. Please take this as a general overview :)",
 	"In this stage, the UX designer will handoff the project to the developers! All relevant assets, components and elements should be organized and labelled accordingly for the developers' ease of use.",

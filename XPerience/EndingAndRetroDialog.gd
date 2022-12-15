@@ -13,6 +13,8 @@ var transition = false
 ##Variable to store dialog_index to display certain diagrams for explanation through _process
 var pop_up_index
 
+signal hide_stage
+
 #onready var pop_up_window = get_node("PopUpWindow")
 onready var dialog_boxes = get_node("DialogBoxes")
 
@@ -80,6 +82,7 @@ func switch_scenes():
 
 
 func _on_DialogBoxes_dialog_completed():
+	emit_signal("hide_stage")
 	$EndCredits.set_process_input(true)
 	$EndCredits.show()
 	$EndCredits.start_credits()

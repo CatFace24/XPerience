@@ -491,6 +491,14 @@ text = "Read through the persona to understand the chickens better.
 Click the arrow once you're done!"
 align = 1
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+margin_left = 379.0
+margin_top = 339.0
+margin_right = 443.0
+margin_bottom = 403.0
+color = Color( 0.560784, 0.227451, 0.227451, 1 )
+
 [connection signal="purple_connected" from="PurpleGrey" to="." method="_on_PurpleGrey_purple_connected"]
 [connection signal="red_connected" from="Red" to="." method="_on_Red_red_connected"]
 [connection signal="teal_connected" from="Teal" to="." method="_on_Teal_teal_connected"]

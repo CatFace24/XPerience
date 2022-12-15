@@ -19,6 +19,7 @@ func _on_Timer_timeout():
 	
 ##function to change scene after loading is finished
 func finished_int():
+	$AudioStreamPlayer.play()
 	emit_signal("int_finished")
 
 

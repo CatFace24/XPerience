@@ -77,7 +77,6 @@ func back_explanation():
 	$Content.percent_visible = 1
 	back_button_just_pressed = true
 	
-	##new testing
 	dialog_index += 1
 
 	

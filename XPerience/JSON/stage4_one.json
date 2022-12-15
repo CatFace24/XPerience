@@ -41,7 +41,7 @@
     ]},
     "24": {"character": "UX", "content": "Not quite, they are actually called High and Low Fidelity Prototypes!", "next": "26"},
     "25": {"character": "UX", "content": "Spot on!", "next": "26"},
-    "26": {"character": "UX", "content": "Low Fidelity(lo-fi) Prototypes are much quicker to make! They provide a simple outline of the flow to check how useful the functionalities are.", "next": "27"},
+    "26": {"character": "UX", "content": "Low Fidelity (lo-fi) Prototypes are much quicker to make! They provide a simple outline of the flow to check how useful the functionalities are.", "next": "27"},
     "27": {"character": "Product Owner", "content": "Won't this be similar to a wireframe then?", "next": "28"},
     "28": {"character": "UX", "content": "Nope! Lo-fi prototypes still represent what the final product may look like and it can be interacted with, unlike wireframes.", "next": "29"},
     "29": {"character": "UX", "content": "High Fidelity (hi-fi) Prototypes come after lo-fi prototypes with much better aesthetics and functions. It gives a clearer picture to what the final product will look like!", "next": "30"},

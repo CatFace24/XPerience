@@ -77,7 +77,6 @@ func _on_PopUpWindow_pop_up_window_complete():
 		$TextureButton.show()
 		$TextureButton.set_process_input(true)
 		$WireGame.persona_completed()
-		$TextureButton.show()
 
 	
 func _on_DialogBoxes_button_pressed():
@@ -118,6 +117,8 @@ func _on_WireGame_all_connected():
 	
 func _on_TextureButton_pressed():
 	$TextureButton/AudioStreamPlayer.play()
+	$TextureButton.hide()
+	$TextureButton.set_process_input(false)
 	$TransitionStageScene.set_process_input(true)
 	$TransitionStageScene.show()
 	$TransitionStageScene.set_content("STAGE 3", "Ideate", 3)

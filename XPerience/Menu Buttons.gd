@@ -8,6 +8,10 @@ func _ready():
 	$InfoWindow.set_process_input(false)
 	
 
+func hide_stage():
+	$Stage.hide()
+
+
 func set_menu(stage):
 	$Stage.text = stage
 
