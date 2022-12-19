@@ -16,7 +16,7 @@ var back_button_just_pressed = false
 signal dialog_index_updated
 
 ##signal to indicate that pop up window is entirely finished
-signal pop_up_window_finished
+signal pop_up_window_finishedl
 
 ##Getting nodes on ready
 export (NodePath) var next_button_path ##script variable in inspector

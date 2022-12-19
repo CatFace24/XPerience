@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Font/Windows Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://MeetingRoom.tscn" type="PackedScene" id=2]
@@ -45,45 +45,13 @@ tracks/0/keys = {
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=7]
-resource_name = "EndCredits"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 537, 741 ), Vector2( 537, -250 ) ]
-}
-
-[sub_resource type="Animation" id=9]
-resource_name = "CreditsButton"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 530, 1050 ), Vector2( 530, 345 ) ]
-}
-
 [sub_resource type="DynamicFont" id=10]
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=11]
-resource_name = "ThanksForPlaying"
-length = 10.0
+[sub_resource type="Animation" id=12]
+resource_name = "EndCredits"
+length = 20.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 2
@@ -91,10 +59,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 10 ),
+"times": PoolRealArray( 0, 18.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 530, 999 ), Vector2( 530, 283 ) ]
+"values": [ Vector2( 420, 720 ), Vector2( 420, -1800 ) ]
 }
 
 [node name="EndCredits" type="Node2D"]
@@ -140,50 +108,94 @@ margin_bottom = -57.6667
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="MeetingRoom"]
 anims/MeetingFadeIn = SubResource( 8 )
 
-[node name="Credits" type="Label" parent="."]
-margin_left = 537.0
-margin_top = 741.0
-margin_right = 752.0
-margin_bottom = 990.0
+[node name="FadeIn" parent="." instance=ExtResource( 6 )]
+
+[node name="CreditsAndButton" type="VBoxContainer" parent="."]
+margin_left = 420.0
+margin_top = 720.0
+margin_right = 852.0
+margin_bottom = 3220.0
+
+[node name="Credits" type="Label" parent="CreditsAndButton"]
+margin_right = 432.0
+margin_bottom = 2097.0
 custom_fonts/font = SubResource( 6 )
-text = "a very long text of
-credits
-credits
-credits
-credits
-credits"
+text = "=== Credits ===
+- Art -
+Ng Jiazhen
+Jane Chong
+
+- Open Sources -
+@Death'sDarling (OpenGameArt.org)
+@GrafxKid (Itch.io)
+@LimeZu (Itch.io)
+@Mounir Tohami (Itch.io)
+
+- Font -
+Squares by @Gowl (Itch.io)
+Levi Windows by Levi Szekeres
+
+- Music -
+Soundtrack - Monplaisir
+Memo - dci noot
+Cutie Song - Hari
+
+- For Feeding UX Knowledge -
+Fennie Lee
+Ivan Davidov
+Kimberley Chong
+Kristjan Gomboc
+
+- For Being a Hypeman -
+Ng Jiazhen
+Megan Alyssa Chia
+FIPX Team
+
+- For Being the Guinea Pigs -
+Ivan Davidov
+Chin Wai Kynn Hosea
+Loo Ji Yong
+Morgan Randall
+Irene Tiong
+Low Vin Ann
+Ian Chong
+
+
+
+
+
+
+
+
+
+
+"
 align = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Credits"]
-anims/EndCredits = SubResource( 7 )
+[node name="ThanksForPlaying" type="Label" parent="CreditsAndButton"]
+margin_top = 2101.0
+margin_right = 432.0
+margin_bottom = 2140.0
+custom_fonts/font = SubResource( 10 )
+text = "Thanks for Playing! :D"
+align = 1
 
-[node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 530.0
-margin_top = 1050.0
-margin_right = 785.0
-margin_bottom = 1128.0
+[node name="TextureButton" type="TextureButton" parent="CreditsAndButton"]
+margin_left = 89.0
+margin_top = 2144.0
+margin_right = 343.0
+margin_bottom = 2220.0
+size_flags_horizontal = 4
+size_flags_vertical = 5
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 8 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureButton"]
-anims/CreditsButton = SubResource( 9 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureButton"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CreditsAndButton/TextureButton"]
 stream = ExtResource( 9 )
 volume_db = 5.0
 
-[node name="FadeIn" parent="." instance=ExtResource( 6 )]
-
-[node name="ThanksForPlaying" type="Label" parent="."]
-margin_left = 530.0
-margin_top = 999.0
-margin_right = 787.0
-margin_bottom = 1038.0
-custom_fonts/font = SubResource( 10 )
-text = "Thanks for Playing! :D"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ThanksForPlaying"]
-anims/ThanksForPlaying = SubResource( 11 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CreditsAndButton"]
+anims/EndCredits = SubResource( 12 )
 
 [connection signal="animation_finished" from="Background/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="MeetingRoom/AnimationPlayer2" to="." method="_on_AnimationPlayer2_animation_finished"]

@@ -20,6 +20,6 @@ func _on_PopUpWindow_dialog_index_updated():
 	emit_signal("dialog_index_fully_updated")
 	
 
-func _on_PopUpWindow_pop_up_window_finished():
+func _on_PopUpWindow__finished():
 	print("Pop Up Finished!!!")
 	emit_signal("pop_up_window_complete")
