@@ -36,6 +36,7 @@ expand_margin_bottom = 3.0
 
 [sub_resource type="DynamicFont" id=4]
 size = 32
+extra_spacing_char = 1
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -164,20 +165,24 @@ text = "INFO"
 align = 1
 
 [node name="Content" type="Label" parent="InfoWindow"]
-margin_left = 416.0
-margin_top = 231.0
-margin_right = 891.0
-margin_bottom = 312.0
+margin_left = 349.0
+margin_top = 226.0
+margin_right = 959.0
+margin_bottom = 475.0
 custom_fonts/font = SubResource( 4 )
-text = "This will contain information of the project,
-it's still under construction :D
+text = "This is an MVP of my Final Year Project on the 
+topic 'gamification of user centricity', aimed to
+increase awareness on user centricity among
+employees! Improvements and updates
+may come soon so stay tuned :D
 "
+align = 1
 
 [node name="TextureButton" type="TextureButton" parent="InfoWindow"]
 margin_left = 524.0
-margin_top = 436.0
+margin_top = 453.0
 margin_right = 778.0
-margin_bottom = 512.0
+margin_bottom = 529.0
 texture_normal = ExtResource( 17 )
 texture_pressed = ExtResource( 18 )
 

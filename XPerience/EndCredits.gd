@@ -14,15 +14,15 @@ export(String) var scene_to_load
 
 ##method to be called by other classes
 func start_credits():
-	$Credits.hide()
+	$CreditsAndButton.hide()
 	$MeetingRoom.hide()
-	$TextureButton.hide()
+	#$TextureButton.hide()
 	$Background/AnimationPlayer.play("BlackBgFadeIn")
-	$TextureButton.connect("pressed", self, "_on_Button_pressed", [scene_to_load])
+	$CreditsAndButton/TextureButton.connect("pressed", self, "_on_Button_pressed", [scene_to_load])
 
 
 func _on_Button_pressed(scene_to_load):
-	$TextureButton/AudioStreamPlayer.play()
+	$CreditsAndButton/TextureButton/AudioStreamPlayer.play()
 	scene_path_to_load = scene_to_load
 	$FadeIn.show()
 	$FadeIn.fade_in()
@@ -31,7 +31,6 @@ func _on_Button_pressed(scene_to_load):
 ##connecting from the signal
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene(scene_path_to_load)
-	
 
 
 ##signal to show elements after bg animation finishes
@@ -42,8 +41,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_AnimationPlayer2_animation_finished(anim_name):
-	$Credits.show()
-	$TextureButton.show()
-	$Credits/AnimationPlayer.play("EndCredits")
-	$TextureButton/AnimationPlayer.play("CreditsButton")
-	$ThanksForPlaying/AnimationPlayer.play("ThanksForPlaying")
+	$CreditsAndButton.show()
+	#$TextureButton.show()
+	$CreditsAndButton/AnimationPlayer.play("EndCredits")
+	#$CreditsAndButton/TextureButton/AnimationPlayer.play("CreditsButton")
+	#$CreditsAndButton/ThanksForPlaying/AnimationPlayer.play("ThanksForPlaying")

@@ -115,11 +115,15 @@ func load_dialog():
 			0.0, 1, (dialog[dialog_index].length()/24) , Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 		$Tween.start()
 		
+		if dialog_index == dialog.size() - 1:
+			print("dialog index before button is pressed: ", dialog_index)
+		
 	else:
 		emit_signal("pop_up_window_finished")
 		#queue_free()
 	
 	dialog_index += 1
+	print("dialog index after button is pressed: ", dialog_index)
 	all_finished = 1
 	back_button_just_pressed = false
 	
