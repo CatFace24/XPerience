@@ -110,4 +110,5 @@ stream = ExtResource( 9 )
 volume_db = 3.0
 
 [connection signal="dialog_index_updated" from="PopUpWindow" to="." method="_on_PopUpWindow_dialog_index_updated"]
+[connection signal="pop_up_window_finished" from="PopUpWindow" to="." method="_on_PopUpWindow_pop_up_window_finished"]
 [connection signal="tween_completed" from="PopUpWindow/Tween" to="PopUpWindow" method="_on_Tween_tween_completed"]

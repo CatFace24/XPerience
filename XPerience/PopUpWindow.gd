@@ -16,7 +16,7 @@ var back_button_just_pressed = false
 signal dialog_index_updated
 
 ##signal to indicate that pop up window is entirely finished
-signal pop_up_window_finishedl
+signal pop_up_window_finished
 
 ##Getting nodes on ready
 export (NodePath) var next_button_path ##script variable in inspector
@@ -115,11 +115,16 @@ func load_dialog():
 			0.0, 1, (dialog[dialog_index].length()/24) , Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 		$Tween.start()
 		
+		if dialog_index == dialog.size() - 1:
+			print("dialog index before button is pressed: ", dialog_index)
+		
 	else:
+		print("Pop up finished??")
 		emit_signal("pop_up_window_finished")
 		#queue_free()
 	
 	dialog_index += 1
+	print("dialog index after button is pressed: ", dialog_index)
 	all_finished = 1
 	back_button_just_pressed = false
 	
